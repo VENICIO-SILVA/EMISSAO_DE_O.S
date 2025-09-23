@@ -12,4 +12,12 @@ public class Dao {
         em.close();
         emf.close();
     }
+    public void IniciarConexao(){
+        try {
+            emf = Persistence.createEntityManagerFactory("Ordem_De_Servico");
+            em = emf.createEntityManager();
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+    }
 }
