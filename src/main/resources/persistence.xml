@@ -7,9 +7,8 @@
 
     <persistence-unit name="Ordem_De_Servico" transaction-type="RESOURCE_LOCAL">
 
-        <class>br.com.os.tabelas.NovoUsuariosTeste</class>
-        <class>br.com.os.tabelas.clientes</class>
-        <class>br.com.os.tabelas.Produtos</class>
+
+        <class>br.com.project.usuarios.Usuarios</class>
 
         <properties>
             <!-- Configuração JDBC -->
