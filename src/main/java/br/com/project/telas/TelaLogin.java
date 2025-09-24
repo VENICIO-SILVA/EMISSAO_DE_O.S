@@ -139,7 +139,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel Lblogin;
     private javax.swing.JLabel Lbsenha;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField CampUsu;
+    private javax.swing.JTextField CampoSenha;
     // End of variables declaration//GEN-END:variables
 }
