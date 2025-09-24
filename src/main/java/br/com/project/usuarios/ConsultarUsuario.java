@@ -17,12 +17,8 @@ public class ConsultarUsuario {
             TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
             query.setParameter("login", login.getText());
             query.setParameter("senha", senha.getPassword());
-            List<Usuarios> list = query.getResultList();
-            if (list.isEmpty()) {
-                return null;
-            } else {
-                return list.get(0);
-            }
+
+            return query.getSingleResult();// retorna o um Objeto Usuario
 
 
         } catch (Exception e) {
