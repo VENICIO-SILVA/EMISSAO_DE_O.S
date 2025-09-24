@@ -18,6 +18,7 @@ public class ConsultarUsuario {
             query.setParameter("login",login.getText());
             query.setParameter("senha", senha.getPassword());
             List<Usuarios> lista = query.getResultList();
+            conexao.FecharConexao();
 
 
         } catch (Exception e) {
