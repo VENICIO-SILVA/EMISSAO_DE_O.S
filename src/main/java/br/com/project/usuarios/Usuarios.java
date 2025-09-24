@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 
 //essa classe é usada para Obter dados da tabela clientes.
 @Entity
+@Table(name = "usuarios")
 public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
