@@ -1,12 +1,15 @@
 package br.com.project.usuarios;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 //essa classe é usada para Obter dados da tabela clientes.
 @Entity
 public class Usuarios {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long IdUser;
 
     private String usuario;
