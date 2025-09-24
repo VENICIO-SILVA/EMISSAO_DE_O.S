@@ -23,6 +23,8 @@ public class ConsultarUsuario {
 
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }finally {
+            conexao.FecharConexao();
         }
         return null;
     }
