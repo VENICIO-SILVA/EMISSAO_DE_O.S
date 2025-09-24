@@ -8,10 +8,12 @@ package br.com.project.telas;
 import br.com.project.usuarios.ConsultarUsuario;
 import br.com.project.usuarios.Usuarios;
 
+import javax.swing.*;
+
 public class TelaLogin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaLogin.class.getName());
-    ConsultarUsuario Consul = new ConsultarUsuario();
+
     /**
      * Creates new form TelaLogin
      */
@@ -19,11 +21,6 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
 
     }
-    public void Login(){
-
-        Consul.Login(CampoUsu, CampoSenha);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,13 +113,14 @@ public class TelaLogin extends javax.swing.JFrame {
         ConsultarUsuario consul = new ConsultarUsuario();
 
         // chama o método login passando os campos da tela
-        Usuarios usuario = consul.Login(CampoUsu, CampoSenha);
+        Usuarios usuario =   consul.Login(CampoUsu, CampoSenha); //todo verificar pq iniciar com usuario e = consul
 
-        if (usuario != null) {
-            LbStatusBd.setText("Login realizado com sucesso!");
-            // abrir próxima tela aqui
+        if (usuario != null) {//if para aparecer mensagem
+            JOptionPane.showMessageDialog(null,"Login realizado com Sucesso");
+            this.dispose();
+
         } else {
-            LbStatusBd.setText("Usuário ou senha inválidos!");
+            JOptionPane.showMessageDialog(null,"Usuario/senha Incorretos");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
