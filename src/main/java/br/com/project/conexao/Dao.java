@@ -20,4 +20,8 @@ public class Dao {
             System.out.println(e.toString());
         }
     }
+    public void FecharConexao() {
+        this.em.close();
+        this.emf.close();
+    }
 }
