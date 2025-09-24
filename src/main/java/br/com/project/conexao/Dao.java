@@ -5,18 +5,17 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class Dao {
-    public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Ordem_De_Servico");
-        EntityManager em = emf.createEntityManager();
+    private EntityManagerFactory emf;
+    public EntityManager em;
 
-        em.close();
-        emf.close();
+    public Dao() {
+
     }
-    public void IniciarConexao(){
-        try {
+    public void IniciarConexao() {
+        try {//try-catch para captura de erro ao realizar conexao com o banco
             emf = Persistence.createEntityManagerFactory("Ordem_De_Servico");
             em = emf.createEntityManager();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.toString());
         }
     }
