@@ -5,16 +5,23 @@
 package br.com.project.telas;
 
 
+import br.com.project.usuarios.ConsultarUsuario;
+import br.com.project.usuarios.Usuarios;
+
 public class TelaLogin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaLogin.class.getName());
-
+    ConsultarUsuario Consul = new ConsultarUsuario();
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
 
+    }
+    public void Login(){
+
+        Consul.Login(CampoUsu, CampoSenha);
     }
 
     /**
@@ -28,8 +35,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
         Lblogin = new javax.swing.JLabel();
         Lbsenha = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        CampoSenha = new javax.swing.JPasswordField();
+        CampoUsu = new javax.swing.JTextField();
         LbStatusBd = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -41,7 +48,7 @@ public class TelaLogin extends javax.swing.JFrame {
         Lbsenha.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         Lbsenha.setText("SENHA:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        CampoUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
@@ -70,8 +77,8 @@ public class TelaLogin extends javax.swing.JFrame {
                             .addComponent(Lblogin, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1)))
+                            .addComponent(CampoUsu, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                            .addComponent(CampoSenha)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(LbStatusBd)
@@ -85,11 +92,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lblogin)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CampoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lbsenha)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbStatusBd)
@@ -106,7 +113,17 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        ConsultarUsuario consul = new ConsultarUsuario();
+
+        // chama o método login passando os campos da tela
+        Usuarios usuario = consul.Login(CampoUsu, CampoSenha);
+
+        if (usuario != null) {
+            LbStatusBd.setText("Login realizado com sucesso!");
+            // abrir próxima tela aqui
+        } else {
+            LbStatusBd.setText("Usuário ou senha inválidos!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -139,7 +156,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel Lblogin;
     private javax.swing.JLabel Lbsenha;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPasswordField CampUsu;
-    private javax.swing.JTextField CampoSenha;
+    private javax.swing.JPasswordField CampoSenha;
+    private javax.swing.JTextField CampoUsu;
     // End of variables declaration//GEN-END:variables
 }
