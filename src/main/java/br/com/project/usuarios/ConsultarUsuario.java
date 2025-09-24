@@ -8,17 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConsultarUsuario {
-    public Usuarios Login(JTextField login, JPasswordField senha){
-        Dao  conexao = new Dao();
+    public Usuarios Login(JTextField login, JPasswordField senha) {
+        Dao conexao = new Dao();
         conexao.IniciarConexao();
         try {
 
-            String jpql = " select u from usuarios u where u.Usuarios = :login and u.Usuarios = :senha";
-            TypedQuery<Usuarios> query = conexao.em.createQuery(jpql,Usuarios.class);
-            query.setParameter("login",login.getText());
+            String jpql = " select u from Usuarios u where u.usuario = :login and u.senha = :senha";
+            TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
+            query.setParameter("login", login.getText());
             query.setParameter("senha", senha.getPassword());
-            List<Usuarios> lista = query.getResultList();
-            conexao.FecharConexao();
+            List<Usuarios> list = query.getResultList();
+            if (list.isEmpty()) {
+                return null;
+            } else {
+                return list.get(0);
+            }
 
 
         } catch (Exception e) {
@@ -26,6 +30,6 @@ public class ConsultarUsuario {
         }finally {
             conexao.FecharConexao();
         }
-        return null;
     }
 }
+
