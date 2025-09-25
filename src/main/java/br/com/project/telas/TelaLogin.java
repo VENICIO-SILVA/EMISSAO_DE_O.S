@@ -119,6 +119,8 @@ public class TelaLogin extends javax.swing.JFrame {
         if (usuario != null) {//if para aparecer mensagem
             JOptionPane.showMessageDialog(null, "Login realizado com Sucesso");
             this.dispose();
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.setVisible(true);
 
         } else {
             JOptionPane.showMessageDialog(null, "Usuario/senha Incorretos");
