@@ -8,7 +8,7 @@ import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
+//todo Configurar funcionalidades dos menus
 /**
  *
  * @author venic
