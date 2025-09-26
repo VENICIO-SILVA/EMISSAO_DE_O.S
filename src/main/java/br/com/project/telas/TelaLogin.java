@@ -5,7 +5,7 @@
 package br.com.project.telas;
 
 
-import br.com.project.usuarios.ConsultarUsuario;
+import br.com.project.usuarios.LoginUsuario;
 import br.com.project.usuarios.Usuarios;
 
 import javax.swing.*;
@@ -113,7 +113,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoUsuActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ConsultarUsuario consul = new ConsultarUsuario();
+        LoginUsuario consul = new LoginUsuario();
 
 
         Usuarios usuario = consul.Login(CampoUsu, CampoSenha); //
@@ -121,6 +121,7 @@ public class TelaLogin extends javax.swing.JFrame {
         if (usuario != null) {//if para aparecer mensagem
             JOptionPane.showMessageDialog(null, "Login realizado com Sucesso");
             this.dispose();
+            String nomeUsuarioLogado = usuario.getUsuario();
             TelaPrincipal tela = new TelaPrincipal();
             tela.TelaPrincipal2(nomeUsuarioLogado);
             tela.setVisible(true);
