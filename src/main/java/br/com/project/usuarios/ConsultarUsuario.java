@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.swing.*;
 
+//esta Classe no atual momento nao vai ser usada.
 public class ConsultarUsuario {
     private String usuario;
 
