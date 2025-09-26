@@ -25,8 +25,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void TelaPrincipal2(String UsuarioLogado) {//recebo o parametro do Usuario logado da tela de login
-        InfoUsuLogado.setText(UsuarioLogado);//seta o parametro recebido para oque quero mostrar no JFrame
+    public void TelaPrincipal2(String UsuarioLogado) {//recebo o parametro do Usuario logado da tela de login.
+        InfoUsuLogado.setText(UsuarioLogado);//seta o parametro recebido para oque quero mostrar no JFrame.
+
     }
 
     public void MudarNOmesLB() {
