@@ -11,11 +11,6 @@ public class LoginUsuario {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
 
-        ConsultarUsuario consul = new ConsultarUsuario();
-        consul.GetINomeUsuTelaDeLogin(login);
-
-        //vai receber o usuario de login da tela de login e passar para
-        //a tela principal onde vou mostrar que esta logado.
         try {
             String jpql = " select u from Usuarios u where u.usuario = :login and u.senha = :senha";
             TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
