@@ -1,8 +1,12 @@
 import br.com.project.conexao.Dao;
+import org.junit.jupiter.api.Test;
 
-public class testeconexao {//classe de teste
-    public static void main(String[] args) {
+class testeconexao {//classe de teste
+
+    @Test
+    void TesteDeConexao() {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
+        conexao.FecharConexao();
     }
 }
