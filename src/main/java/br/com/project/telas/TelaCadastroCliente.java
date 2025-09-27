@@ -46,6 +46,29 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void CampoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoNomeActionPerformed
+
+    private void CampoTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoTelefoneActionPerformed
+
+    private void BtcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtcadastrarActionPerformed
+        CadastrarCliente cadastrar = new CadastrarCliente();
+
+        Clientes cliente = cadastrar.Cadastrar(CampoNome, CampoTelefone, CampoEndereco, CampoGmail);
+        if(cliente == null){
+            JOptionPane.showMessageDialog(null, "Cliente nao cadastrado");
+        }else{
+            JOptionPane.showMessageDialog(null,"Cliente cadastrado Com Sucesso");
+            this.dispose();
+        }
+
+
+
+    }//GEN-LAST:event_BtcadastrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
