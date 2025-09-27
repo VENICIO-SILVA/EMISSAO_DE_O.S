@@ -213,6 +213,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowActivated
 
+    private void BarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarCadastroActionPerformed
+  
+    }//GEN-LAST:event_BarCadastroActionPerformed
+
+    private void MenuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuClientesActionPerformed
+        TelaCadastroCliente iniciar = new TelaCadastroCliente();
+        iniciar.setVisible(true);
+    }//GEN-LAST:event_MenuClientesActionPerformed
+
     /**
      * @param args the command line arguments
      */
