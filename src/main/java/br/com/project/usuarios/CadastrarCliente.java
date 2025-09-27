@@ -14,9 +14,10 @@ public class CadastrarCliente {
                 JOptionPane.showMessageDialog(null, "Preencha o campo gmail");
                 //como o email é unico no banco de dados se ele vier vazio do campo de inserção ja faço uma verifação para
                 //mostrar um erro com letras estranhas na tela ou erro durante a execução
+                return InserirCLiente;
                 if (nome.getText().isEmpty() && telefone.getText().isEmpty() && endereco.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Preencha os campos");
-
+                    return InserirCLiente;
                 }
             } else {
 
