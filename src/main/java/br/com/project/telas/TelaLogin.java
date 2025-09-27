@@ -39,6 +39,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
 
         Lblogin.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         Lblogin.setText("USUÁRIO:");
@@ -52,7 +53,8 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        LbStatusBd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/switch-on.png"))); // NOI18N
+        LbStatusBd.setIcon(new javax.swing.ImageIcon(getClass().
+                getResource("/icones/switch-on.png"))); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jButton1.setText("LOGIN");
