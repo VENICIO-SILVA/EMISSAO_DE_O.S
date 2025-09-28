@@ -120,16 +120,12 @@ public class TelaLogin extends javax.swing.JFrame {
 
         Usuarios usuario = consul.Login(CampoUsu, CampoSenha); //
 
-        if (usuario != null) {//if para aparecer mensagem
-            JOptionPane.showMessageDialog(null, "Login realizado com Sucesso");
-            this.dispose();
+        if (usuario != null) {
+            this.dispose(); // fecha a tela de login
             String nomeUsuarioLogado = usuario.getUsuario();
             TelaPrincipal tela = new TelaPrincipal();
             tela.TelaPrincipal2(nomeUsuarioLogado);
             tela.setVisible(true);
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario/senha Incorretos");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
