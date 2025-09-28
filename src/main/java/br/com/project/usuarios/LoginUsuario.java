@@ -10,7 +10,7 @@ public class LoginUsuario {
     public Usuarios Login(JTextField login, JPasswordField senha) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
-
+        Usuarios user = new Usuarios();
         try {
             boolean valido = true;
             if (login.getText().isEmpty() && senha.getText().isEmpty()) {
@@ -47,13 +47,13 @@ public class LoginUsuario {
                     return null;
                 }
             }
-
-
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(null,"Erro de conexao com banco de dados"+ e.getMessage());
         } finally {
-
+            conexao.FecharConexao();
         }
+        return user;
     }
 }
+
 
