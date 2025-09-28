@@ -167,8 +167,8 @@ public class TelaCadastroAdmin extends javax.swing.JFrame {
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
         CadastrarCliente cadastrar = new CadastrarCliente();
 
-        Clientes cliente = cadastrar.Cadastrar(CampoUsuario, CampoSenha, CampoTelefone, CampoGmail);
-      if (cliente == null){
+        Usuarios usuarios = cadastrar.Cadastrar(CampoUsuario, CampoSenha,CampoTelefone,CampoGmail);
+      if (usuarios == null){
           JOptionPane.showMessageDialog(null,"Por favor Preencha os Campos");
       }else if(cliente.getGmail().isEmpty()){
           JOptionPane.showMessageDialog(null,"Preencha o campo gmail");
