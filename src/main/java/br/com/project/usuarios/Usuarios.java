@@ -15,6 +15,7 @@ public class Usuarios {
     @Column(unique = true, nullable = false)
     private String gmail_login;
     private String senha;
+    private String Perfil;
 
     public long getIdUser() {
         return IdUser;
