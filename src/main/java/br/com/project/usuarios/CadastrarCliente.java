@@ -10,7 +10,7 @@ public class CadastrarCliente {
         conexao.IniciarConexao();
         Clientes InserirCLiente = new Clientes();
         try {
-            //todo organizar quando cada Alerta deve aparecer porque quando os campos estao vazios esta rodando o do email tambem
+            //todo organizar Logica dos campos vazios na ordem correta
             if (gmail.getText().isEmpty() == true) {
                 JOptionPane.showMessageDialog(null, "Preencha o campo gmail");
                 //como o email é unico no banco de dados se ele vier vazio do campo de inserção ja faço uma verifação para

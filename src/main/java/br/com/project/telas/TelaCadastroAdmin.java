@@ -4,8 +4,8 @@
  */
 package br.com.project.telas;
 
-import br.com.project.usuarios.CadastrarCliente;
-import br.com.project.usuarios.Clientes;
+import br.com.project.usuarios.CadastrarAdmin;
+import br.com.project.usuarios.Usuarios;
 
 import javax.swing.*;
 
@@ -165,12 +165,13 @@ public class TelaCadastroAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoSenhaActionPerformed
 
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
-        CadastrarCliente cadastrar = new CadastrarCliente();
+        CadastrarAdmin cadastrar = new CadastrarAdmin();
 
         Usuarios usuarios = cadastrar.Cadastrar(CampoUsuario, CampoSenha,CampoTelefone,CampoGmail);
+        //todo implementar logica dos campos vazios
       if (usuarios == null){
           JOptionPane.showMessageDialog(null,"Por favor Preencha os Campos");
-      }else if(cliente.getGmail().isEmpty()){
+      }else if(usuarios.getGmail_login().isEmpty()){
           JOptionPane.showMessageDialog(null,"Preencha o campo gmail");
       }else{
           JOptionPane.showMessageDialog(null,"Cliente Cadastrado com sucesso");

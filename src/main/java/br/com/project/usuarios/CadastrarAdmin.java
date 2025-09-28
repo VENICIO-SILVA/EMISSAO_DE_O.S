@@ -10,7 +10,7 @@ public class CadastrarAdmin {
         conexao.IniciarConexao();
         Usuarios InsertUsuario = new Usuarios();
         try {
-            //todo organizar quando cada Alerta deve aparecer porque quando os campos estao vazios esta rodando o do email tambem
+            //todo organizar logica dos campos vazios
             if (gmail.getText().isEmpty() == true) {
                 JOptionPane.showMessageDialog(null, "Preencha o campo gmail");
                 //como o email é unico no banco de dados se ele vier vazio do campo de inserção ja faço uma verifação para
@@ -20,11 +20,10 @@ public class CadastrarAdmin {
                     return InsertUsuario;
                 }
             } else {
-
                 InsertUsuario.setUsuario(Usuario.getText());
                 InsertUsuario.setSenha(Senha.getText());
                 InsertUsuario.setTelefone(telefone.getText());
-                InsertUsuario.setGmail(gmail.getText());
+                InsertUsuario.setGmail_login(gmail.getText());
                 conexao.em.getTransaction().begin();
                 conexao.em.persist(InsertUsuario);
                 conexao.em.getTransaction().commit();
