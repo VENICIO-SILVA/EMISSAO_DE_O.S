@@ -43,7 +43,7 @@ public class CadastrarAdmin {
                 InsertUsuario.setSenha(Senha.getText());
                 InsertUsuario.setTelefone(telefone.getText());
                 InsertUsuario.setGmail_login(gmail.getText());
-                InsertUsuario.setPerfil("Admin");
+                InsertUsuario.setPerfil("Admin");//esse comando dara automaticamente a indentidade de admin na coluna perfil do banco de dados
                 conexao.em.getTransaction().begin();
                 conexao.em.persist(InsertUsuario);
                 conexao.em.getTransaction().commit();
