@@ -12,8 +12,8 @@ public class Usuarios {
 
     private String usuario;
     private String telefone;
-    @Column(unique = true, nullable = true)
-    private String gmail;
+    @Column(unique = true, nullable = false)
+    private String gmail_login;
     private String senha;
 
     public long getIdUser() {
@@ -40,12 +40,12 @@ public class Usuarios {
         this.telefone = telefone;
     }
 
-    public String getGmail() {
-        return gmail;
+    public String getGmail_login() {
+        return gmail_login;
     }
 
-    public void setGmail(String gmail) {
-        this.gmail = gmail;
+    public void setGmail_login(String gmail_login) {
+        this.gmail_login = gmail_login;
     }
 
     public String getSenha() {
