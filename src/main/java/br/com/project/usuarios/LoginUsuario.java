@@ -12,15 +12,40 @@ public class LoginUsuario {
         conexao.IniciarConexao();
 
         try {
-            String jpql = " select u from Usuarios u where u.gmail_login = :login and u.senha = :senha";
-            TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
-            query.setParameter("login", login.getText());
-            query.setParameter("senha", senha.getPassword());
-            List<Usuarios> list = query.getResultList();
-            if (list.isEmpty()) {
+            boolean valido = true;
+            if (login.getText().isEmpty() && senha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "E obrigatório Informar os dados para login");
+                valido = false;
+                return null;
+            }
+
+            if (login.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha o Campo Usuário");
+                return null;
+
+            }
+
+            if (senha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha o Campo Senha");
                 return null;
             } else {
-                return query.getSingleResult();
+
+                String jpql = " select u from Usuarios u where u.gmail_login = :login and u.senha = :senha";
+                TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
+                query.setParameter("login", login.getText());
+                query.setParameter("senha", new String(senha.getPassword()));
+                List<Usuarios> list = query.getResultList();
+                user = query.getSingleResult();
+                if (list.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Usuário não existe");
+                    return null;
+                }
+                if ("admin".equals(user.getPerfil())){
+                    return user;
+                }else{
+                    JOptionPane.showMessageDialog(null,"Este Usuario nao é ADMIN");
+                    return null;
+                }
             }
 
 
