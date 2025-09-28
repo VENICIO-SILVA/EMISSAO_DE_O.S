@@ -12,7 +12,7 @@ public class LoginUsuario {
         conexao.IniciarConexao();
 
         try {
-            String jpql = " select u from Usuarios u where u.usuario = :login and u.senha = :senha";
+            String jpql = " select u from Usuarios u where u.gmail_login = :login and u.senha = :senha";
             TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
             query.setParameter("login", login.getText());
             query.setParameter("senha", senha.getPassword());
