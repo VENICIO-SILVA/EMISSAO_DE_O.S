@@ -56,4 +56,12 @@ public class Usuarios {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getPerfil() {
+        return Perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        Perfil = perfil;
+    }
 }
