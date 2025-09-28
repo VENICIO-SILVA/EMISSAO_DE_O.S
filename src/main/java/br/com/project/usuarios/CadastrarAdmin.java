@@ -10,15 +10,34 @@ public class CadastrarAdmin {
         conexao.IniciarConexao();
         Usuarios InsertUsuario = new Usuarios();
         try {
-            //todo organizar logica dos campos vazios
-            if (gmail.getText().isEmpty() == true) {
-                JOptionPane.showMessageDialog(null, "Preencha o campo gmail");
-                //como o email é unico no banco de dados se ele vier vazio do campo de inserção ja faço uma verifação para
-                //mostrar um erro com letras estranhas na tela ou erro durante a execução
-                if (Usuario.getText().isEmpty() && Senha.getText().isEmpty() && telefone.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Preencha os campos");
-                    return InsertUsuario;
-                }
+            if (Usuario.getText().isEmpty() && Senha.getText().isEmpty() && telefone.getText().isEmpty() && gmail.getText().isEmpty()) {
+
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                return InsertUsuario;//aqui eu retorno para nao precisar passar pelas verificações seguintes
+            }
+            boolean valido = true;
+            //os "false" fazem a verificação continuar e caso encontrar "true" quer dizer q o campo esta preenchido e vai passar para a outra verificação
+            if (Usuario.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "E obrigatorio fornecer um Nome de Usuário");
+                valido = false;
+            }
+
+            if (Senha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "E obrigatorio fornecer numero para contato");
+                valido = false;
+            }
+
+            if (telefone.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha o campo Endereço");
+                valido = false;
+            }
+
+            if (gmail.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "E obrigatorio fornecer um E-mail");
+                valido = false;
+            }
+            if (!valido) {
+                return InsertUsuario;
             } else {
                 InsertUsuario.setUsuario(Usuario.getText());
                 InsertUsuario.setSenha(Senha.getText());
@@ -31,7 +50,7 @@ public class CadastrarAdmin {
 
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Seu Gmail nao pode ser igual ao de Alguem ja Cadastrado");
+            JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             conexao.FecharConexao();
         }
