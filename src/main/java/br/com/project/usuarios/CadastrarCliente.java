@@ -28,7 +28,7 @@ public class CadastrarCliente {
                 valido = false;
             }
 
-            if (endereco.getText().isEmpty()){
+            if (endereco.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha o campo Endereço");
                 valido = false;
             }
@@ -39,8 +39,7 @@ public class CadastrarCliente {
             }
             if (!valido) {
                 return InserirCLiente;
-            }
-             else {
+            } else {
 
                 InserirCLiente.setNome(nome.getText());
                 InserirCLiente.setEndereco(endereco.getText());
@@ -53,7 +52,7 @@ public class CadastrarCliente {
 
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Seu Gmail nao pode ser igual ao de Alguem ja Cadastrado");
+            JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             conexao.FecharConexao();
         }
