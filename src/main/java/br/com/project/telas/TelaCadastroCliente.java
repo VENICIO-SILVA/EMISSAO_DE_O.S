@@ -44,7 +44,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         LbTitulo = new javax.swing.JLabel();
         Btcadastrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar Admin");
 
         LbNome.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
