@@ -4,12 +4,17 @@
  */
 package br.com.project.telas;
 
+import br.com.project.usuarios.CadastrarCliente;
+import br.com.project.usuarios.Clientes;
+
+import javax.swing.*;
+
 /**
  *
  * @author venic
  */
 public class TelaCadastroCliente extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName());
 
     /**
@@ -28,18 +33,121 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LbNome = new javax.swing.JLabel();
+        LbEndereco = new javax.swing.JLabel();
+        LbTelefone = new javax.swing.JLabel();
+        LbGmail = new javax.swing.JLabel();
+        CampoEndereco = new javax.swing.JTextField();
+        CampoNome = new javax.swing.JTextField();
+        CampoTelefone = new javax.swing.JTextField();
+        CampoGmail = new javax.swing.JTextField();
+        LbTitulo = new javax.swing.JLabel();
+        Btcadastrar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Cliente");
+
+        LbNome.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LbNome.setText("Nome:");
+
+        LbEndereco.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LbEndereco.setText("Endereço");
+
+        LbTelefone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LbTelefone.setText("Telefone:");
+
+        LbGmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LbGmail.setText("Gmail:");
+
+        CampoEndereco.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        CampoNome.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        CampoNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoNomeActionPerformed(evt);
+            }
+        });
+
+        CampoTelefone.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        CampoTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoTelefoneActionPerformed(evt);
+            }
+        });
+
+        CampoGmail.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        LbTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LbTitulo.setText("ARÉA DE CADASTRO");
+
+        Btcadastrar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        Btcadastrar.setText("CADASTRAR CLIENTE");
+        Btcadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtcadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addGap(34, 34, 34)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                        .addComponent(LbTelefone)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(CampoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                        .addComponent(LbEndereco)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(CampoEndereco))))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addGap(28, 28, 28)
+                                                        .addComponent(LbGmail)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(CampoGmail, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addGap(28, 28, 28)
+                                                        .addComponent(LbNome)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(CampoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(176, 176, 176)
+                                                .addComponent(LbTitulo))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(123, 123, 123)
+                                                .addComponent(Btcadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(LbTitulo)
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(CampoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(LbNome))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(LbTelefone)
+                                        .addComponent(CampoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(LbEndereco)
+                                        .addComponent(CampoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(LbGmail)
+                                        .addComponent(CampoGmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(38, 38, 38)
+                                .addComponent(Btcadastrar)
+                                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -58,14 +166,14 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         CadastrarCliente cadastrar = new CadastrarCliente();
 
         Clientes cliente = cadastrar.Cadastrar(CampoNome, CampoTelefone, CampoEndereco, CampoGmail);
-        if(cliente == null){
-            JOptionPane.showMessageDialog(null, "Cliente nao cadastrado");
-        }else{
-            JOptionPane.showMessageDialog(null,"Cliente cadastrado Com Sucesso");
-            this.dispose();
-        }
-
-
+      if (cliente == null){
+          JOptionPane.showMessageDialog(null,"Por favor Preencha os Campos");
+      }else if(cliente.getGmail().isEmpty()){
+          JOptionPane.showMessageDialog(null,"Preencha o campo gmail");
+      }else{
+          JOptionPane.showMessageDialog(null,"Cliente Cadastrado com sucesso");
+          this.dispose();
+      }
 
     }//GEN-LAST:event_BtcadastrarActionPerformed
 
@@ -76,7 +184,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -95,5 +203,15 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btcadastrar;
+    private javax.swing.JTextField CampoEndereco;
+    private javax.swing.JTextField CampoGmail;
+    private javax.swing.JTextField CampoNome;
+    private javax.swing.JTextField CampoTelefone;
+    private javax.swing.JLabel LbEndereco;
+    private javax.swing.JLabel LbGmail;
+    private javax.swing.JLabel LbNome;
+    private javax.swing.JLabel LbTelefone;
+    private javax.swing.JLabel LbTitulo;
     // End of variables declaration//GEN-END:variables
 }
