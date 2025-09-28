@@ -10,16 +10,37 @@ public class CadastrarCliente {
         conexao.IniciarConexao();
         Clientes InserirCLiente = new Clientes();
         try {
-            //todo organizar Logica dos campos vazios na ordem correta
-            if (gmail.getText().isEmpty() == true) {
-                JOptionPane.showMessageDialog(null, "Preencha o campo gmail");
-                //como o email é unico no banco de dados se ele vier vazio do campo de inserção ja faço uma verifação para
-                //mostrar um erro com letras estranhas na tela ou erro durante a execução
-                if (nome.getText().isEmpty() && telefone.getText().isEmpty() && endereco.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Preencha os campos");
-                    return InserirCLiente;
-                }
-            } else {
+            if (nome.getText().isEmpty() && telefone.getText().isEmpty() &&
+                    endereco.getText().isEmpty() && gmail.getText().isEmpty()) {
+
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                return InserirCLiente;//aqui eu retorno para nao precisar passar pelas verificações seguintes
+            }
+            boolean valido = true;
+            //os "false" fazem a verificação continuar e caso encontrar "true" quer dizer q o campo esta preenchido e vai passar para a outra verificação
+            if (nome.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "E obrigatorio fornecer um Nome de Usuário");
+                valido = false;
+            }
+
+            if (telefone.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "E obrigatorio fornecer numero para contato");
+                valido = false;
+            }
+
+            if (endereco.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Preencha o campo Endereço");
+                valido = false;
+            }
+
+            if (gmail.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "E obrigatorio fornecer um E-mail");
+                valido = false;
+            }
+            if (!valido) {
+                return InserirCLiente;
+            }
+             else {
 
                 InserirCLiente.setNome(nome.getText());
                 InserirCLiente.setEndereco(endereco.getText());
