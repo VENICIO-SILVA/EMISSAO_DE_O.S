@@ -12,6 +12,7 @@ public class Usuarios {
 
     private String usuario;
     private String telefone;
+    @Column(unique = true, nullable = true)
     private String gmail;
     private String senha;
 
