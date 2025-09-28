@@ -52,8 +52,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         CapaTela = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         BarCadastro = new javax.swing.JMenu();
+        MenuCadastroCliente = new javax.swing.JMenuItem();
         MenuClientes = new javax.swing.JMenuItem();
-        MenuAdmin = new javax.swing.JMenuItem();
+        CadastrarAdm = new javax.swing.JMenuItem();
         MenuOS = new javax.swing.JMenuItem();
         BarRelatorio = new javax.swing.JMenu();
         MenuServiços = new javax.swing.JMenuItem();
@@ -119,24 +120,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        MenuClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        MenuClientes.setText("Clientes");
-        MenuClientes.addActionListener(new java.awt.event.ActionListener() {
+        MenuCadastroCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        MenuCadastroCliente.setText("Cadastrar Cliente");
+        MenuCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuClientesActionPerformed(evt);
+                MenuCadastroClienteActionPerformed(evt);
             }
         });
+        BarCadastro.add(MenuCadastroCliente);
+
+        MenuClientes.setText("Clientes");
         BarCadastro.add(MenuClientes);
 
-        MenuAdmin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        MenuAdmin.setText("Usuários");
-        MenuAdmin.setEnabled(false);
-        MenuAdmin.addActionListener(new java.awt.event.ActionListener() {
+        CadastrarAdm.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CadastrarAdm.setText("CadastrarAdmin");
+        CadastrarAdm.setEnabled(false);
+        CadastrarAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuAdminActionPerformed(evt);
+                CadastrarAdmActionPerformed(evt);
             }
         });
-        BarCadastro.add(MenuAdmin);
+        BarCadastro.add(CadastrarAdm);
 
         MenuOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         MenuOS.setText("OS");
@@ -241,10 +245,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BarCadastroActionPerformed
 
-    private void MenuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuClientesActionPerformed
+    private void MenuCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadastroClienteActionPerformed
         TelaCadastroCliente iniciar = new TelaCadastroCliente();
         iniciar.setVisible(true);
-    }//GEN-LAST:event_MenuClientesActionPerformed
+    }//GEN-LAST:event_MenuCadastroClienteActionPerformed
 
     private void MenuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuLogoutActionPerformed
         TelaLogin IniciarLogin = new TelaLogin();
@@ -252,10 +256,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_MenuLogoutActionPerformed
 
-    private void MenuAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAdminActionPerformed
+    private void CadastrarAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarAdmActionPerformed
         TelaCadastroAdmin iniciar = new TelaCadastroAdmin();
         iniciar.setVisible(true);
-    }//GEN-LAST:event_MenuAdminActionPerformed
+    }//GEN-LAST:event_CadastrarAdmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,10 +291,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu BarCadastro;
     private javax.swing.JMenu BarOpcoes;
     private javax.swing.JMenu BarRelatorio;
+    public static javax.swing.JMenuItem CadastrarAdm;
     private javax.swing.JLabel CapaTela;
     private javax.swing.JLabel DataHora;
     private javax.swing.JLabel InfoUsuLogado;
-    public static javax.swing.JMenuItem MenuAdmin;
+    private javax.swing.JMenuItem MenuCadastroCliente;
     private javax.swing.JMenuItem MenuClientes;
     private javax.swing.JMenuItem MenuLogout;
     private javax.swing.JMenuItem MenuOS;
