@@ -115,17 +115,17 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoUsuActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        LoginUsuario consul = new LoginUsuario();
+        LoginAdmin consul = new LoginAdmin();
 
 
         Usuarios usuario = consul.Login(CampoUsu, CampoSenha); //
 
-        if (usuario != null) {
+        if (usuario != null && usuario.getPerfil().equals("admin")) {
             this.dispose(); // fecha a tela de login
             String nomeUsuarioLogado = usuario.getUsuario();
             TelaPrincipal tela = new TelaPrincipal();
             tela.TelaPrincipal2(nomeUsuarioLogado);
-            
+
             tela.MenuCadastroCliente.setEnabled(true);
             tela.MenuClientes.setEnabled(true);
             tela.CadastrarAdm.setEnabled(true);
@@ -133,6 +133,10 @@ public class TelaLogin extends javax.swing.JFrame {
             tela.MenuOS.setEnabled(true);
 
             tela.setVisible(true);
+
+
+        } else {
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
