@@ -5,7 +5,7 @@
 package br.com.project.telas;
 
 
-import br.com.project.usuarios.LoginUsuario;
+import br.com.project.usuarios.LoginAdmin;
 import br.com.project.usuarios.Usuarios;
 
 import javax.swing.*;
