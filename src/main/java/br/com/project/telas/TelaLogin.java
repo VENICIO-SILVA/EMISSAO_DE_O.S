@@ -125,6 +125,13 @@ public class TelaLogin extends javax.swing.JFrame {
             String nomeUsuarioLogado = usuario.getUsuario();
             TelaPrincipal tela = new TelaPrincipal();
             tela.TelaPrincipal2(nomeUsuarioLogado);
+            
+            tela.MenuCadastroCliente.setEnabled(true);
+            tela.MenuClientes.setEnabled(true);
+            tela.CadastrarAdm.setEnabled(true);
+            tela.MenuADMS.setEnabled(true);
+            tela.MenuOS.setEnabled(true);
+
             tela.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
