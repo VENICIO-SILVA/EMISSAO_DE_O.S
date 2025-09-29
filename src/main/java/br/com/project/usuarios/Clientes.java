@@ -20,6 +20,8 @@ public class Clientes {
 
     @Column(unique = true, nullable = true)
     private String gmail;
+    @Column(nullable = false)
+    private String perfil;
 
     public Clientes() {
 
