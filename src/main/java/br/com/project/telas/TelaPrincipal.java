@@ -123,6 +123,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuCadastroCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         MenuCadastroCliente.setText("Cadastrar Cliente");
+        MenuCadastroCliente.setEnabled(false);
         MenuCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuCadastroClienteActionPerformed(evt);
@@ -131,6 +132,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarCadastro.add(MenuCadastroCliente);
 
         MenuClientes.setText("Clientes");
+        MenuClientes.setEnabled(false);
         BarCadastro.add(MenuClientes);
 
         CadastrarAdm.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -143,8 +145,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         BarCadastro.add(CadastrarAdm);
 
+        MenuADMS.setText("Administradores");
+        MenuADMS.setEnabled(false);
+        BarCadastro.add(MenuADMS);
+
         MenuOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         MenuOS.setText("OS");
+        MenuOS.setEnabled(false);
         MenuOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuOSActionPerformed(evt);
@@ -296,10 +303,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel CapaTela;
     private javax.swing.JLabel DataHora;
     private javax.swing.JLabel InfoUsuLogado;
-    private javax.swing.JMenuItem MenuCadastroCliente;
-    private javax.swing.JMenuItem MenuClientes;
+    public static javax.swing.JMenuItem MenuADMS;
+    public static javax.swing.JMenuItem MenuCadastroCliente;
+    public static javax.swing.JMenuItem MenuClientes;
     private javax.swing.JMenuItem MenuLogout;
-    private javax.swing.JMenuItem MenuOS;
+    public static javax.swing.JMenuItem MenuOS;
     private javax.swing.JMenuItem MenuSair;
     private javax.swing.JMenuItem MenuServiços;
     private javax.swing.JLabel Topico;
