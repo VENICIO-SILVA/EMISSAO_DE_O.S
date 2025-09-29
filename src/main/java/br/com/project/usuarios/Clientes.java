@@ -74,4 +74,12 @@ public class Clientes {
     public void setGmail(String gmail) {
         this.gmail = gmail;
     }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
 }
