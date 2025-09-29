@@ -45,6 +45,8 @@ public class CadastrarCliente {
                 InserirCLiente.setEndereco(endereco.getText());
                 InserirCLiente.setTelefone(telefone.getText());
                 InserirCLiente.setGmail(gmail.getText());
+                //A linha abaixo dara automaticamente a indentidade de cliente na coluna perfil do banco de dados
+                InserirCLiente.setPerfil("Cliente");
                 conexao.em.getTransaction().begin();
                 conexao.em.persist(InserirCLiente);
                 conexao.em.getTransaction().commit();
