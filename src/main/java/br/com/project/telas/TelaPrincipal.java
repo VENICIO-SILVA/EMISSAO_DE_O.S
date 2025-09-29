@@ -55,6 +55,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuCadastroCliente = new javax.swing.JMenuItem();
         MenuClientes = new javax.swing.JMenuItem();
         CadastrarAdm = new javax.swing.JMenuItem();
+        MenuADMS = new javax.swing.JMenuItem();
         MenuOS = new javax.swing.JMenuItem();
         BarRelatorio = new javax.swing.JMenu();
         MenuServiços = new javax.swing.JMenuItem();
