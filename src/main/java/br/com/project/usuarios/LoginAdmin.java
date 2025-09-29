@@ -6,7 +6,7 @@ import jakarta.persistence.TypedQuery;
 import javax.swing.*;
 import java.util.List;
 
-public class LoginUsuario {
+public class LoginAdmin {
     public Usuarios Login(JTextField login, JPasswordField senha) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
@@ -41,6 +41,7 @@ public class LoginUsuario {
                     return null;
                 }
                 if ("admin".equals(user.getPerfil())){
+                    JOptionPane.showMessageDialog(null,"Login realizado com sucesso!");
                     return user;
                 }else{
                     JOptionPane.showMessageDialog(null,"Este Usuario nao é ADMIN");
@@ -48,11 +49,11 @@ public class LoginUsuario {
                 }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro de conexao com banco de dados"+ e.getMessage());
+            JOptionPane.showMessageDialog(null,"Este Usuario  nao existe");
+            return null;
         } finally {
             conexao.FecharConexao();
         }
-        return user;
     }
 }
 
