@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 //essa classe é usada para Obter dados da tabela clientes.
 @Entity
 @Table(name = "usuarios")
-public class Usuarios {
+public class Admins {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long IdUser;
