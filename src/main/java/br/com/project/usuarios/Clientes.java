@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 public class Clientes {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCli;
 
     @Column(nullable = true)
@@ -22,6 +21,7 @@ public class Clientes {
     private String gmail;
     @Column(nullable = false)
     private String perfil;
+    private String senha;
 
     public Clientes() {
 
