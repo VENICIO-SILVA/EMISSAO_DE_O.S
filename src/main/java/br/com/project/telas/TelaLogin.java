@@ -5,8 +5,11 @@
 package br.com.project.telas;
 
 
+import br.com.project.usuarios.Admins;
+import br.com.project.usuarios.Clientes;
 import br.com.project.usuarios.LoginAdmin;
-import br.com.project.usuarios.Usuarios;
+
+import javax.swing.*;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -115,15 +118,18 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         LoginAdmin consul = new LoginAdmin();
 
+        Object loginResult = consul.Login(CampoUsu, CampoSenha);
 
-        Usuarios usuario = consul.Login(CampoUsu, CampoSenha); //
 
-        if (usuario != null && usuario.getPerfil().equals("admin")) {
-            this.dispose(); // fecha a tela de login
-            String nomeUsuarioLogado = usuario.getUsuario();
+        //faz a verificação do retorno se o Object é da classe Admins e essa classe possuo do usuario retornado o "admin" para efetuar o login como admin
+        if (loginResult instanceof Admins admins && "admin".equals(admins.getPerfil())) {
+            // LOGIN ADMIN
+            this.dispose();
+            String nomeUsuarioLogado = admins.getUsuario();
             TelaPrincipal tela = new TelaPrincipal();
             tela.TelaPrincipal2(nomeUsuarioLogado);
 
+            // Habilitar menus para admin
             tela.MenuCadastroCliente.setEnabled(true);
             tela.MenuClientes.setEnabled(true);
             tela.CadastrarAdm.setEnabled(true);
@@ -131,10 +137,14 @@ public class TelaLogin extends javax.swing.JFrame {
             tela.MenuOS.setEnabled(true);
 
             tela.setVisible(true);
-
-
+        //faz a verificação do retorno se o Object é da classe Cliente e essa classe possuo do usuario retornado o "cliente" para efetuar o login como cliente
+        } else if (loginResult instanceof Clientes cliente && "Cliente".equals(cliente.getPerfil())) {
+            this.dispose();
+            String nomeUsuarioLogado = cliente.getPerfil();
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.TelaPrincipal2(nomeUsuarioLogado);
         } else {
-
+            JOptionPane.showMessageDialog(this, "Login falhou!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
