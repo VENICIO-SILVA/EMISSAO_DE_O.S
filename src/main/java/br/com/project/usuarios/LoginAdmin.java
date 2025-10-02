@@ -5,13 +5,12 @@ import jakarta.persistence.TypedQuery;
 
 import javax.swing.*;
 import java.util.List;
-import java.util.Objects;
 
 public class LoginAdmin {
     public Object Login(JTextField login, JPasswordField senha) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
-        Usuarios user = new Usuarios();
+        Admins user = new Admins();
         Clientes clientes = new Clientes();
         try {
             //os primeiros if verificam os campos
@@ -33,10 +32,10 @@ public class LoginAdmin {
             } else {
 
                 String jpql = " select u from Usuarios u where u.gmail_login = :login and u.senha = :senha";
-                TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
+                TypedQuery<Admins> query = conexao.em.createQuery(jpql, Admins.class);
                 query.setParameter("login", login.getText());
                 query.setParameter("senha", new String(senha.getPassword()));
-                List<Usuarios> listUsuarios = query.getResultList();
+                List<Admins> listUsuarios = query.getResultList();
 
                 if (!listUsuarios.isEmpty()) {
                     user = listUsuarios.get(0);
