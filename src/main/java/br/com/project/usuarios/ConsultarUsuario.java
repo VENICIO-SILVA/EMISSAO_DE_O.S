@@ -21,15 +21,15 @@ public class ConsultarUsuario {
         this.usuario = IdUser.getText();
     }
 
-    public Usuarios Consulta() {
+    public Admins Consulta() {
         Dao conexao = new Dao();//conexao com banco
         conexao.IniciarConexao();
         try {
             String jpql = "SELECT u FROM Usuarios u WHERE u.usuario = :usuario";//select na coluna usuario/nome do admin
-            TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
+            TypedQuery<Admins> query = conexao.em.createQuery(jpql, Admins.class);
             query.setParameter("usuario", this.usuario);//faz a consulta apenas do nome do usuario
             //no banco via os parametros recebidos nos primeiros metodos
-            List<Usuarios> list = query.getResultList();
+            List<Admins> list = query.getResultList();
             if (list.isEmpty()) {
                 return null;
             } else {
