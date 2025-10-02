@@ -5,10 +5,10 @@ import br.com.project.conexao.Dao;
 import javax.swing.*;
 
 public class CadastrarAdmin {
-    public Usuarios Cadastrar(JTextField Usuario, JTextField Senha, JTextField telefone, JTextField gmail) {
+    public Admins Cadastrar(JTextField Usuario, JTextField Senha, JTextField telefone, JTextField gmail) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
-        Usuarios InsertUsuario = new Usuarios();
+        Admins InsertUsuario = new Admins();
         try {
             if (Usuario.getText().isEmpty() && Senha.getText().isEmpty() && telefone.getText().isEmpty() && gmail.getText().isEmpty()) {
 
