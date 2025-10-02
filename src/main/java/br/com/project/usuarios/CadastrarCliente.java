@@ -5,7 +5,7 @@ import br.com.project.conexao.Dao;
 import javax.swing.*;
 
 public class CadastrarCliente {
-    public Clientes Cadastrar(JTextField nome, JTextField telefone, JTextField endereco, JTextField gmail) {
+    public Clientes Cadastrar(JTextField nome, JTextField telefone, JTextField senha, JTextField endereco, JTextField gmail) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
         Clientes InserirCLiente = new Clientes();
@@ -43,6 +43,7 @@ public class CadastrarCliente {
 
                 InserirCLiente.setNome(nome.getText());
                 InserirCLiente.setEndereco(endereco.getText());
+                InserirCLiente.setSenha(senha.getText());
                 InserirCLiente.setTelefone(telefone.getText());
                 InserirCLiente.setGmail(gmail.getText());
                 //A linha abaixo dara automaticamente a indentidade de cliente na coluna perfil do banco de dados
