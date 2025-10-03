@@ -143,6 +143,7 @@ public class TelaLogin extends javax.swing.JFrame {
             String nomeUsuarioLogado = cliente.getPerfil();
             TelaPrincipal tela = new TelaPrincipal();
             tela.TelaPrincipal2(nomeUsuarioLogado);
+            tela.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Login falhou!");
         }
