@@ -5,8 +5,8 @@
     <persistence-unit name="Ordem_De_Servico" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>br.com.project.admins.Admins</class>
-        <class>br.com.project.admins.Clientes</class>
+        <class>br.com.project.usuarios.Usuarios</class>
+        <class>br.com.project.usuarios.Clientes</class>
         <properties>
             <!-- Configuração JDBC -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
