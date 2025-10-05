@@ -18,12 +18,21 @@ public class ConsultarUsuario {
             TypedQuery<Clientes> query = conexao.em.createQuery(jpql, Clientes.class);
             query.setParameter("nome", nomeCli.getText());//faz a consulta apenas do nome do usuario
             List<Clientes> list = query.getResultList();
-            cliente = list.get(0);
-            if (cliente.getNome().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Cliente nao existe");
-                return null;
-            } else {
+            if (!list.isEmpty()) {
+                cliente = list.get(0);
                 return cliente;
+            } else {
+                String jpql2 = "SELECT u FROM Usuarios u WHERE u.usuario = :usuario";
+                TypedQuery<Usuarios> query2 = conexao.em.createQuery(jpql2, Usuarios.class);
+                query2.setParameter("usuario", nomeCli.getText());//faz a consulta apenas do nome do usuario
+                List<Usuarios> list2 = query2.getResultList();
+                if (!list2.isEmpty()) {
+                    usuario = list2.get(0);
+                    return usuario;
+                } else {
+                    JOptionPane.showMessageDialog(null,"Usuario nao existe");
+                    return null;
+                }
             }
 
         } catch (Exception e) {
