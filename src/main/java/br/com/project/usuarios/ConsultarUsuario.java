@@ -9,10 +9,11 @@ import javax.swing.*;
 
 public class ConsultarUsuario {
 
-    public Clientes Consulta(JTextField nomeCli) {
+    public Object Consulta(JTextField nomeCli) {
         Dao conexao = new Dao();//conexao com banco
         conexao.IniciarConexao();
         Clientes cliente = new Clientes();
+        Usuarios usuario = new Usuarios();
         try {
             String jpql = "SELECT u FROM Clientes u WHERE u.nome = :nome";//select na coluna usuario/nome do admin
             TypedQuery<Clientes> query = conexao.em.createQuery(jpql, Clientes.class);
@@ -37,6 +38,8 @@ public class ConsultarUsuario {
 
         } catch (Exception e) {
             throw new RuntimeException(e);
+        } finally {
+            conexao.FecharConexao();
         }
     }
 }
