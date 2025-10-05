@@ -7,37 +7,27 @@ import java.util.List;
 
 import javax.swing.*;
 
-//esta Classe no atual momento nao vai ser usada.
-//todo decidir onde vai usar a classe
 public class ConsultarUsuario {
-    private String usuario;
 
-    public ConsultarUsuario() {
-
-    }
-
-    public void GetINomeUsuTelaDeLogin(JTextField IdUser) {
-        //recebe o id que foi usado para o login na tela de login
-        this.usuario = IdUser.getText();
-    }
-
-    public Admins Consulta() {
+    public Clientes Consulta(JTextField nomeCli) {
         Dao conexao = new Dao();//conexao com banco
         conexao.IniciarConexao();
+        Clientes cliente = new Clientes();
         try {
-            String jpql = "SELECT u FROM Usuarios u WHERE u.usuario = :usuario";//select na coluna usuario/nome do admin
-            TypedQuery<Admins> query = conexao.em.createQuery(jpql, Admins.class);
-            query.setParameter("usuario", this.usuario);//faz a consulta apenas do nome do usuario
-            //no banco via os parametros recebidos nos primeiros metodos
-            List<Admins> list = query.getResultList();
-            if (list.isEmpty()) {
+            String jpql = "SELECT u FROM Clientes u WHERE u.nome = :nome";//select na coluna usuario/nome do admin
+            TypedQuery<Clientes> query = conexao.em.createQuery(jpql, Clientes.class);
+            query.setParameter("nome", nomeCli.getText());//faz a consulta apenas do nome do usuario
+            List<Clientes> list = query.getResultList();
+            cliente = list.get(0);
+            if (cliente.getNome().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Cliente nao existe");
                 return null;
             } else {
-                return query.getSingleResult();
+                return cliente;
             }
 
         } catch (Exception e) {
-            throw  new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 }
