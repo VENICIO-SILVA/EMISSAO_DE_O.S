@@ -5,9 +5,9 @@
 package br.com.project.telas;
 
 
-import br.com.project.usuarios.Admins;
+import br.com.project.usuarios.Usuarios;
 import br.com.project.usuarios.Clientes;
-import br.com.project.usuarios.LoginAdmin;
+import br.com.project.usuarios.Login;
 
 import javax.swing.*;
 
@@ -20,7 +20,6 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
-
     }
 
     /**
@@ -116,16 +115,16 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoUsuActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        LoginAdmin consul = new LoginAdmin();
+        Login consul = new Login();
 
-        Object loginResult = consul.Login(CampoUsu, CampoSenha);
+        Object loginResult = consul.Login(CampoUsu, CampoSenha);//todo estudar Object
 
-
+        //todo  2 coisa  fazer revisar e entender melhore  aprender
         //faz a verificação do retorno se o Object é da classe Admins e essa classe possuo do usuario retornado o "admin" para efetuar o login como admin
-        if (loginResult instanceof Admins admins && "admin".equals(admins.getPerfil())) {
+        if (loginResult instanceof Usuarios usuarios) {
             // LOGIN ADMIN
             this.dispose();
-            String nomeUsuarioLogado = admins.getUsuario();
+            String nomeUsuarioLogado = usuarios.getUsuario();
             TelaPrincipal tela = new TelaPrincipal();
             tela.TelaPrincipal2(nomeUsuarioLogado);
 
@@ -138,7 +137,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
             tela.setVisible(true);
         //faz a verificação do retorno se o Object é da classe Cliente e essa classe possuo do usuario retornado o "cliente" para efetuar o login como cliente
-        } else if (loginResult instanceof Clientes cliente && "Cliente".equals(cliente.getPerfil())) {
+        } else if (loginResult instanceof Clientes cliente) {
             this.dispose();
             String nomeUsuarioLogado = cliente.getPerfil();
             TelaPrincipal tela = new TelaPrincipal();
