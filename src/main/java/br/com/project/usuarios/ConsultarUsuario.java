@@ -15,7 +15,7 @@ public class ConsultarUsuario {
         Clientes cliente = new Clientes();
         Usuarios usuario = new Usuarios();
         try {
-            String jpql = "SELECT u FROM Clientes u WHERE u.nome = :nome";//select na coluna usuario/nome do admin
+            String jpql = "SELECT u FROM Clientes u WHERE u.nome = :nome";//select na coluna Cliente/nome do admin
             TypedQuery<Clientes> query = conexao.em.createQuery(jpql, Clientes.class);
             query.setParameter("nome", nomeCli.getText());//faz a consulta apenas do nome do usuario
             List<Clientes> list = query.getResultList();
@@ -35,6 +35,7 @@ public class ConsultarUsuario {
                     return null;
                 }
             }
+
 
         } catch (Exception e) {
             throw new RuntimeException(e);
