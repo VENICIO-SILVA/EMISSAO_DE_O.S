@@ -6,12 +6,14 @@ import jakarta.persistence.TypedQuery;
 import javax.swing.*;
 import java.util.List;
 
-public class LoginAdmin {
+public class Login {
     public Object Login(JTextField login, JPasswordField senha) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
-        Admins user = new Admins();
+        Usuarios user = new Usuarios();
         Clientes clientes = new Clientes();
+
+        //todo  1 coisa  fazer revisar e entender melhore  aprender
         try {
             //os primeiros if verificam os campos
             if (login.getText().isEmpty() && senha.getText().isEmpty()) {
@@ -32,10 +34,10 @@ public class LoginAdmin {
             } else {
 
                 String jpql = " select u from Usuarios u where u.gmail_login = :login and u.senha = :senha";
-                TypedQuery<Admins> query = conexao.em.createQuery(jpql, Admins.class);
+                TypedQuery<Usuarios> query = conexao.em.createQuery(jpql, Usuarios.class);
                 query.setParameter("login", login.getText());
                 query.setParameter("senha", new String(senha.getPassword()));
-                List<Admins> listUsuarios = query.getResultList();
+                List<Usuarios> listUsuarios = query.getResultList();
 
                 if (!listUsuarios.isEmpty()) {
                     user = listUsuarios.get(0);
