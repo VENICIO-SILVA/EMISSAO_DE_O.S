@@ -38,10 +38,11 @@ public class ConsultarUsuario {
 
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(null,"Erro de conexao com banco de dados" + e.getMessage());
         } finally {
             conexao.FecharConexao();
         }
+        return null;
     }
 }
 
