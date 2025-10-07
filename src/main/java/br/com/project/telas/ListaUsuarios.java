@@ -145,6 +145,8 @@ public class ListaUsuarios extends javax.swing.JInternalFrame {
 
         Object usuario = consul.Consulta(CampoPesquisa);
 
+        jTable1.setModel(jTable1.getModel());
+
     }//GEN-LAST:event_BtpesquisaActionPerformed
 
 
