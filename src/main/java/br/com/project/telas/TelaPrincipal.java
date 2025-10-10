@@ -57,7 +57,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuCadastroCliente = new javax.swing.JMenuItem();
         MenuClientes = new javax.swing.JMenuItem();
         CadastrarAdm = new javax.swing.JMenuItem();
-        MenuADMS = new javax.swing.JMenuItem();
         MenuOS = new javax.swing.JMenuItem();
         BarRelatorio = new javax.swing.JMenu();
         MenuServiços = new javax.swing.JMenuItem();
@@ -133,7 +132,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         BarCadastro.add(MenuCadastroCliente);
 
-        MenuClientes.setText("Clientes");
+        MenuClientes.setText("Usuarios");
         MenuClientes.setEnabled(false);
         MenuClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,10 +150,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         BarCadastro.add(CadastrarAdm);
-
-        MenuADMS.setText("Administradores");
-        MenuADMS.setEnabled(false);
-        BarCadastro.add(MenuADMS);
 
         MenuOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         MenuOS.setText("OS");
@@ -219,7 +214,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(Topico, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CapaTela, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
@@ -324,7 +318,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel DataHora;
     private javax.swing.JToolBar Desktop;
     private javax.swing.JLabel InfoUsuLogado;
-    public static javax.swing.JMenuItem MenuADMS;
     public static javax.swing.JMenuItem MenuCadastroCliente;
     public static javax.swing.JMenuItem MenuClientes;
     private javax.swing.JMenuItem MenuLogout;
