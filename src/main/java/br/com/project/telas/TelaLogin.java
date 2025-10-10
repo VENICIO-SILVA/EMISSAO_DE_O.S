@@ -132,7 +132,6 @@ public class TelaLogin extends javax.swing.JFrame {
             tela.MenuCadastroCliente.setEnabled(true);
             tela.MenuClientes.setEnabled(true);
             tela.CadastrarAdm.setEnabled(true);
-            tela.MenuADMS.setEnabled(true);
             tela.MenuOS.setEnabled(true);
 
             tela.setVisible(true);
