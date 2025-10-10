@@ -35,11 +35,11 @@ public class Clientes {
         this.gmail = gmail;
     }
 
-    public Long getIdCli() {
+    public int getIdCli() {
         return idCli;
     }
 
-    public void setIdCli(Long idCli) {
+    public void setIdCli(int idCli) {
         this.idCli = idCli;
     }
 
