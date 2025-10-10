@@ -6,6 +6,10 @@ package br.com.project.telas;
 
 import br.com.project.usuarios.Clientes;
 import br.com.project.usuarios.ConsultarUsuario;
+import br.com.project.usuarios.Usuarios;
+
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 /**
  *
@@ -141,11 +145,30 @@ public class ListaUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CampoPesquisaActionPerformed
 
     private void BtpesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtpesquisaActionPerformed
-        ConsultarUsuario consul = new ConsultarUsuario();
+        ConsultarUsuario consulta = new ConsultarUsuario();
+        List<Object> lista = consulta.Consulta(CampoPesquisa);
 
-        Object usuario = consul.Consulta(CampoPesquisa);
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
 
-        jTable1.setModel(jTable1.getModel());
+        for (Object obj : lista) {
+            if (obj instanceof Clientes c) {
+                modelo.addRow(new Object[]{
+                        c.getIdCli(),
+                        c.getNome(),
+                        c.getTelefone(),
+                        c.getEndereco(),
+                        c.getGmail()
+                });
+            } else if (obj instanceof Usuarios u) {
+                modelo.addRow(new Object[]{
+                        u.getIdUser(),
+                        u.getUsuario(),
+                        u.getTelefone(),
+                        u.getGmail_login()
+                });
+            }
+        }
 
     }//GEN-LAST:event_BtpesquisaActionPerformed
 
