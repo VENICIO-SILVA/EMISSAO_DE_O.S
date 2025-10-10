@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Clientes {
 
     @Id
-    private Long idCli;
+    private int idCli;
 
     @Column(nullable = true)
     private String nome;
