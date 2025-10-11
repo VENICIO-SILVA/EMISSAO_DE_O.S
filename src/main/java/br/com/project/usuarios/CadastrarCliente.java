@@ -5,7 +5,7 @@ import br.com.project.conexao.Dao;
 import javax.swing.*;
 
 public class CadastrarCliente {
-    public Clientes Cadastrar(JTextField nome, JTextField telefone, JTextField senha, JTextField endereco, JTextField gmail) {
+    public Clientes Cadastrar(JTextField nome, JTextField senha, JTextField telefone, JTextField endereco, JTextField gmail) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
         Clientes InserirCLiente = new Clientes();
