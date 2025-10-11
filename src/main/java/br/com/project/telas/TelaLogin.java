@@ -132,6 +132,7 @@ public class TelaLogin extends javax.swing.JFrame {
             tela.MenuCadastroCliente.setEnabled(true);
             tela.MenuClientes.setEnabled(true);
             tela.CadastrarAdm.setEnabled(true);
+            tela.MenuOs.setEnabled(true);
 
             tela.setVisible(true);
         //faz a verificação do retorno se o Object é da classe Cliente e essa classe possuo do usuario retornado o "cliente" para efetuar o login como cliente
