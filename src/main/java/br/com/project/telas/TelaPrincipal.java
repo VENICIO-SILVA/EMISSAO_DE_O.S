@@ -153,6 +153,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         MenuOs.setText("OS");
+        MenuOs.setEnabled(false);
         MenuOs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuOsActionPerformed(evt);
@@ -317,7 +318,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public static javax.swing.JMenuItem MenuCadastroCliente;
     public static javax.swing.JMenuItem MenuClientes;
     private javax.swing.JMenuItem MenuLogout;
-    private javax.swing.JMenuItem MenuOs;
+    public static javax.swing.JMenuItem MenuOs;
     private javax.swing.JMenuItem MenuSair;
     private javax.swing.JMenuItem MenuServiços;
     private javax.swing.JLabel Topico;
