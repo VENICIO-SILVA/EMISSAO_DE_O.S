@@ -57,7 +57,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuCadastroCliente = new javax.swing.JMenuItem();
         MenuClientes = new javax.swing.JMenuItem();
         CadastrarAdm = new javax.swing.JMenuItem();
-        MenuOS = new javax.swing.JMenuItem();
+        MenuOs = new javax.swing.JMenuItem();
         BarRelatorio = new javax.swing.JMenu();
         MenuServiços = new javax.swing.JMenuItem();
         BarAjuda = new javax.swing.JMenu();
@@ -151,15 +151,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         BarCadastro.add(CadastrarAdm);
 
-        MenuOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        MenuOS.setText("OS");
-        MenuOS.setEnabled(false);
-        MenuOS.addActionListener(new java.awt.event.ActionListener() {
+        MenuOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        MenuOs.setText("OS");
+        MenuOs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuOSActionPerformed(evt);
+                MenuOsActionPerformed(evt);
             }
         });
-        BarCadastro.add(MenuOS);
+        BarCadastro.add(MenuOs);
 
         jMenuBar1.add(BarCadastro);
 
@@ -240,10 +239,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuOSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MenuOSActionPerformed
-
     private void MenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_MenuSairActionPerformed
@@ -283,6 +278,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Desktop.add(iniciar);
     }//GEN-LAST:event_MenuClientesActionPerformed
 
+    private void MenuOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuOsActionPerformed
+        TelaGerarOs iniciar = new TelaGerarOs();
+        iniciar.setVisible(true);
+        Desktop.add(iniciar);
+    }//GEN-LAST:event_MenuOsActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -290,7 +290,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -321,7 +321,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public static javax.swing.JMenuItem MenuCadastroCliente;
     public static javax.swing.JMenuItem MenuClientes;
     private javax.swing.JMenuItem MenuLogout;
-    public static javax.swing.JMenuItem MenuOS;
+    private javax.swing.JMenuItem MenuOs;
     private javax.swing.JMenuItem MenuSair;
     private javax.swing.JMenuItem MenuServiços;
     private javax.swing.JLabel Topico;
