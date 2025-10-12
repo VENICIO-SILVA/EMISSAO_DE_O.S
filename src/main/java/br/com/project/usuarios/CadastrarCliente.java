@@ -48,8 +48,10 @@ public class CadastrarCliente {
                 InserirCLiente.setGmail(gmail.getText());
                 //A linha abaixo dara automaticamente a indentidade de cliente na coluna perfil do banco de dados
                 InserirCLiente.setPerfil("Cliente");
+
+                //transação
                 conexao.em.getTransaction().begin();
-                conexao.em.persist(InserirCLiente);
+                conexao.em.persist(InserirCLiente);//apos todos os sets aqui e onde de fato ocorre a conexao com o banco e faz o insert
                 conexao.em.getTransaction().commit();
             }
 
