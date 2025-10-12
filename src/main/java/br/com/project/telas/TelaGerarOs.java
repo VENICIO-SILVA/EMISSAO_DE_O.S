@@ -90,7 +90,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(216, 216, 216)
                         .addComponent(jButton1)
-                        .addGap(0, 263, Short.MAX_VALUE))
+                        .addGap(0, 212, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +137,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                 .addGap(62, 62, 62))
         );
 
-        setBounds(0, 0, 754, 538);
+        setBounds(0, 0, 703, 538);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampoEquipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoEquipActionPerformed
