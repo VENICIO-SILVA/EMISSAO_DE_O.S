@@ -7,6 +7,7 @@
 
         <class>br.com.project.domain.Usuarios</class>
         <class>br.com.project.domain.Clientes</class>
+        <class>br.com.project.domain.OrdensDeServico</class>
         <properties>
             <!-- Configuração JDBC -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
@@ -14,9 +15,9 @@
                       value="jdbc:mysql://localhost:3306/projetoos?useSSL=true&amp;serverTimezone=UTC"/>
 
             <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="coxinha220"/> <!-- Hibernate como provider JPA -->
+            <property name="jakarta.persistence.jdbc.password" value="coxinha220"/>
             <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/> <!-- Logs -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
