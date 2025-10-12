@@ -7,7 +7,7 @@ package br.com.project.view;
 
 import br.com.project.domain.Usuarios;
 import br.com.project.domain.Clientes;
-import br.com.project.domain.Login;
+import br.com.project.controller.Login;
 
 import javax.swing.*;
 
