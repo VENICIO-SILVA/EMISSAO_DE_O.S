@@ -1,6 +1,7 @@
-package br.com.project.usuarios;
+package br.com.project.controller;
 
-import br.com.project.conexao.Dao;
+import br.com.project.dao.Dao;
+import br.com.project.domain.Usuarios;
 
 import javax.swing.*;
 

@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package br.com.project.telas;
+package br.com.project.view;
 
-import br.com.project.usuarios.Clientes;
-import br.com.project.usuarios.ConsultarUsuario;
-import br.com.project.usuarios.Usuarios;
+import br.com.project.domain.Clientes;
+import br.com.project.controller.ConsultarUsuario;
+import br.com.project.domain.Usuarios;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.List;

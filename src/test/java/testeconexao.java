@@ -1,4 +1,4 @@
-import br.com.project.conexao.Dao;
+import br.com.project.dao.Dao;
 import org.junit.jupiter.api.Test;
 
 class testeconexao {//classe de teste

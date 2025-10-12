@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.com.project.telas;
+package br.com.project.view;
 
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
@@ -239,7 +239,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void formWindowActivated(WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Date data = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat("EEEE, dd 'de' MMMM 'de' yyyy HH:mm:ss", new Locale("pt", "BR"));
+        SimpleDateFormat formato = new SimpleDateFormat("EEEE, dd 'de' MMMM \n'de' yyyy HH:mm:ss", new Locale("pt", "BR"));
         DataHora.setText(formato.format(data));
 
 

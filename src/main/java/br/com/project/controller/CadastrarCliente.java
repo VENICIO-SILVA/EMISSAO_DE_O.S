@@ -1,6 +1,7 @@
-package br.com.project.usuarios;
+package br.com.project.controller;
 
-import br.com.project.conexao.Dao;
+import br.com.project.dao.Dao;
+import br.com.project.domain.Clientes;
 
 import javax.swing.*;
 
@@ -51,7 +52,7 @@ public class CadastrarCliente {
 
                 //transação
                 conexao.em.getTransaction().begin();
-                conexao.em.persist(InserirCLiente);//apos todos os sets aqui e onde de fato ocorre a conexao com o banco e faz o insert
+                conexao.em.persist(InserirCLiente);//apos todos os sets, aqui e onde de fato ocorre a conexao com o banco e faz o insert
                 conexao.em.getTransaction().commit();
             }
 

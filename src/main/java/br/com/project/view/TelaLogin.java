@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.com.project.telas;
+package br.com.project.view;
 
 
-import br.com.project.usuarios.Usuarios;
-import br.com.project.usuarios.Clientes;
-import br.com.project.usuarios.Login;
+import br.com.project.domain.Usuarios;
+import br.com.project.domain.Clientes;
+import br.com.project.domain.Login;
 
 import javax.swing.*;
 

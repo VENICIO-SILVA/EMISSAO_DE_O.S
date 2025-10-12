@@ -1,4 +1,4 @@
-package br.com.project.usuarios;
+package br.com.project.domain;
 
 import jakarta.persistence.*;
 
