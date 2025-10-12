@@ -1,6 +1,8 @@
-package br.com.project.domain;
+package br.com.project.controller;
 
 import br.com.project.dao.Dao;
+import br.com.project.domain.Clientes;
+import br.com.project.domain.Usuarios;
 import jakarta.persistence.TypedQuery;
 
 import javax.swing.*;
