@@ -149,15 +149,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         BarCadastro.add(CadastrarAdm);
-
-        MenuOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        MenuOs.setText("OS");
-        MenuOs.setEnabled(false);
-        MenuOs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuOsActionPerformed(evt);
-            }
-        });
         BarCadastro.add(MenuOs);
 
         jMenuBar1.add(BarCadastro);
@@ -271,12 +262,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         iniciar.setVisible(true);
         Desktop.add(iniciar);
     }//GEN-LAST:event_MenuClientesActionPerformed
-
-    private void MenuOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuOsActionPerformed
-        TelaGerarOs iniciar = new TelaGerarOs();
-        iniciar.setVisible(true);
-        Desktop.add(iniciar);
-    }//GEN-LAST:event_MenuOsActionPerformed
     /**
      * @param args the command line arguments
      */
