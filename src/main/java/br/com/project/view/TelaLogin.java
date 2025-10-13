@@ -117,9 +117,8 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Login consul = new Login();
 
-        Object loginResult = consul.Login(CampoUsu, CampoSenha);//todo estudar Object
+        Object loginResult = consul.Login(CampoUsu, CampoSenha);
 
-        //todo  2 coisa  fazer revisar e entender melhore  aprender
         //faz a verificação do retorno se o Object é da classe Admins e essa classe possuo do usuario retornado o "admin" para efetuar o login como admin
         if (loginResult instanceof Usuarios usuarios) {
             // LOGIN ADMIN
