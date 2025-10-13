@@ -8,9 +8,6 @@ import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-//todo Configurar funcionalidades dos menus
-//todo configurar janelas de cadastro dentro do desktopane e nao abrir fora da tela principal
-
 /**
  *
  * @author venic
@@ -55,9 +52,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         BarCadastro = new javax.swing.JMenu();
         MenuCadastroCliente = new javax.swing.JMenuItem();
-        MenuClientes = new javax.swing.JMenuItem();
         CadastrarAdm = new javax.swing.JMenuItem();
-        MenuOs = new javax.swing.JMenuItem();
+        CadastrarOs = new javax.swing.JMenuItem();
         BarRelatorio = new javax.swing.JMenu();
         MenuServiços = new javax.swing.JMenuItem();
         BarAjuda = new javax.swing.JMenu();
@@ -82,11 +78,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
         DataHora.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        DataHora.setForeground(new java.awt.Color(0, 0, 0));
         DataHora.setText("jLabel2");
 
         InfoUsuLogado.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        InfoUsuLogado.setForeground(new java.awt.Color(0, 0, 0));
         InfoUsuLogado.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -95,11 +89,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(InfoUsuLogado, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DataHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DataHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(InfoUsuLogado, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 133, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,11 +102,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(InfoUsuLogado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addComponent(DataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         CapaTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ordem-de-servico.png"))); // NOI18N
+        CapaTela.setText("jLabel2");
 
         BarCadastro.setText("Cadastro");
         BarCadastro.addActionListener(new java.awt.event.ActionListener() {
@@ -131,15 +126,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         BarCadastro.add(MenuCadastroCliente);
 
-        MenuClientes.setText("Usuarios");
-        MenuClientes.setEnabled(false);
-        MenuClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuClientesActionPerformed(evt);
-            }
-        });
-        BarCadastro.add(MenuClientes);
-
         CadastrarAdm.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         CadastrarAdm.setText("CadastrarAdmin");
         CadastrarAdm.setEnabled(false);
@@ -149,7 +135,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         BarCadastro.add(CadastrarAdm);
-        BarCadastro.add(MenuOs);
+
+        CadastrarOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CadastrarOs.setText("OS");
+        CadastrarOs.setEnabled(false);
+        CadastrarOs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastrarOsActionPerformed(evt);
+            }
+        });
+        BarCadastro.add(CadastrarOs);
 
         jMenuBar1.add(BarCadastro);
 
@@ -193,18 +188,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(Desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Topico, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(Topico, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(CapaTela)
-                        .addGap(34, 34, 34))))
+                        .addComponent(CapaTela, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,10 +209,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Topico)
-                        .addGap(2, 2, 2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CapaTela))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CapaTela)
+                        .addGap(2, 2, 2))
                     .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
@@ -243,6 +240,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void MenuCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadastroClienteActionPerformed
         TelaCadastroCliente iniciar = new TelaCadastroCliente();
         iniciar.setVisible(true);
+        Desktop.add(iniciar);
     }//GEN-LAST:event_MenuCadastroClienteActionPerformed
 
     private void MenuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuLogoutActionPerformed
@@ -257,11 +255,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Desktop.add(iniciar);
     }//GEN-LAST:event_CadastrarAdmActionPerformed
 
-    private void MenuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuClientesActionPerformed
-        ListaUsuarios iniciar = new ListaUsuarios();
+    private void CadastrarOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarOsActionPerformed
+        TelaGerarOs iniciar = new TelaGerarOs();
         iniciar.setVisible(true);
         Desktop.add(iniciar);
-    }//GEN-LAST:event_MenuClientesActionPerformed
+    }//GEN-LAST:event_CadastrarOsActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -293,14 +291,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu BarOpcoes;
     private javax.swing.JMenu BarRelatorio;
     public static javax.swing.JMenuItem CadastrarAdm;
+    public static javax.swing.JMenuItem CadastrarOs;
     private javax.swing.JLabel CapaTela;
     private javax.swing.JLabel DataHora;
     private javax.swing.JToolBar Desktop;
     private javax.swing.JLabel InfoUsuLogado;
     public static javax.swing.JMenuItem MenuCadastroCliente;
-    public static javax.swing.JMenuItem MenuClientes;
     private javax.swing.JMenuItem MenuLogout;
-    public static javax.swing.JMenuItem MenuOs;
     private javax.swing.JMenuItem MenuSair;
     private javax.swing.JMenuItem MenuServiços;
     private javax.swing.JLabel Topico;
