@@ -17,9 +17,6 @@ import java.util.List;
  */
 public class TelaGerarOs extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form TelaGerarOs
-     */
     public TelaGerarOs() {
         initComponents();
 
@@ -40,6 +37,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
             model.addRow(new Object[]{c.getIdCli(), c.getNome(), c.getTelefone()});
         }
         TabelaOs.setModel(model);
+        CampoId.setText(List.toString());//todo nao funcionou resolver
     }
 
     /**
@@ -177,6 +175,11 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                 "ID", "NOME", "TELEFONE"
             }
         ));
+        TabelaOs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelaOsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TabelaOs);
 
         BtpesqID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8-pesquisar-67.png"))); // NOI18N
@@ -259,6 +262,14 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                 CampoValorActionPerformed(evt);
             }
         });
+
+        BtAddOs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/novo-arquivo.png"))); // NOI18N
+        BtAddOs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtAddOsActionPerformed(evt);
+            }
+        });
+
         BtPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/procurar.png"))); // NOI18N
 
         BtEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar-arquivo.png"))); // NOI18N
@@ -363,6 +374,9 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BtAddOsActionPerformed(ActionEvent evt) {
+    }
+
     private void CampoPesquisaActionPerformed(ActionEvent evt) {
     }
 
@@ -403,6 +417,10 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     private void BtpesqIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtpesqIDActionPerformed
 
     }//GEN-LAST:event_BtpesqIDActionPerformed
+
+    private void TabelaOsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaOsMouseClicked
+        PesquisarCliente(); //todo corrigir apresentação do ID
+    }//GEN-LAST:event_TabelaOsMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
