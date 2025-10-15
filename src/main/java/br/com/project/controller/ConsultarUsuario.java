@@ -2,7 +2,6 @@ package br.com.project.controller;
 
 import br.com.project.dao.Dao;
 import br.com.project.domain.Clientes;
-import br.com.project.domain.Usuarios;
 import jakarta.persistence.TypedQuery;
 
 import java.util.ArrayList;
@@ -11,25 +10,18 @@ import javax.swing.*;
 
 public class ConsultarUsuario {
 
-    public List<Object> Consulta(JTextField nomeCli) {
+    public List<Clientes> Consulta(JTextField nomeCli) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
 
-        List<Object> resultados = new ArrayList<>();
+        List<Clientes> resultados = new ArrayList<>();
 
         try {
-            // Busca Clientes
-            String jpql = "SELECT c FROM Clientes c WHERE c.nome = :nome";
+            //todo estudar esse jpql
+            String jpql = "SELECT c FROM Clientes c WHERE c.nome LIKE :nome";
             TypedQuery<Clientes> query = conexao.em.createQuery(jpql, Clientes.class);
-            query.setParameter("nome", nomeCli.getText());
+            query.setParameter("nome", "%" + nomeCli.getText() + "%");
             resultados.addAll(query.getResultList());
-
-            // Busca Usuários
-            String jpql2 = "SELECT u FROM Usuarios u WHERE u.usuario = :usuario";
-            TypedQuery<Usuarios> query2 = conexao.em.createQuery(jpql2, Usuarios.class);
-            query2.setParameter("usuario", nomeCli.getText());
-            resultados.addAll(query2.getResultList());
-
             if (resultados.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Usuário não existe");
             }
