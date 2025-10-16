@@ -4,12 +4,19 @@
  */
 package br.com.project.view;
 
+import br.com.project.controller.CadastrarOS;
 import br.com.project.controller.ConsultarUsuario;
 import br.com.project.domain.Clientes;
+import br.com.project.domain.OrdensDeServico;
+import jakarta.persistence.Id;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  *
@@ -37,7 +44,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
             model.addRow(new Object[]{c.getIdCli(), c.getNome(), c.getTelefone()});
         }
         TabelaOs.setModel(model);
-        CampoId.setText(List.toString());//todo nao funcionou resolver
     }
 
     /**
@@ -375,6 +381,16 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtAddOsActionPerformed(ActionEvent evt) {
+        CadastrarOS cadastrar = new CadastrarOS();
+        OrdensDeServico ordens = cadastrar.cadastrarOS(CampoNOS,CampoDataOs,CampoNomeEquip,
+                CampoServico,CampoDefeito,CampoTec,CampoValor, CampoId);
+        if (ordens == null){
+            JOptionPane.showMessageDialog(null, "Nao foi possivel cadastrar a Os");
+        }else{
+            Date data = new Date();
+            SimpleDateFormat formato = new SimpleDateFormat("EEEE, dd 'de' MMMM \n'de' yyyy HH:mm:ss", new Locale("pt", "BR"));
+            CampoDataOs.setText(formato.format(data));
+        }
     }
 
     private void CampoPesquisaActionPerformed(ActionEvent evt) {
@@ -419,7 +435,11 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtpesqIDActionPerformed
 
     private void TabelaOsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaOsMouseClicked
-        PesquisarCliente(); //todo corrigir apresentação do ID
+        int linha = TabelaOs.getSelectedRow();
+        //o codigo abaixo diz " getvalue a linha que e recebida pela var INT na coluna 0 que representa o ID na tabela e depois para to String para
+        //ser possivel usar o setTexta do "CampoId"
+        String idcli = TabelaOs.getValueAt(linha, 0).toString();
+        CampoId.setText(idcli);
     }//GEN-LAST:event_TabelaOsMouseClicked
 
 
