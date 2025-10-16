@@ -1,20 +1,21 @@
 package br.com.project.controller;
 
 import br.com.project.dao.Dao;
+import br.com.project.domain.Clientes;
 import br.com.project.domain.OrdensDeServico;
 
 import javax.swing.*;
 import java.sql.Timestamp;
 
 public class CadastrarOS {
- public OrdensDeServico cadastrarOS(JTextField Numeros, JTextField DataOs, JTextField Equipamento, JTextField servico, JTextField defeito,JTextField tecnico, JTextField valor){
+ public OrdensDeServico cadastrarOS(JTextField Numeros, JTextField DataOs, JTextField Equipamento, JTextField servico, JTextField defeito,JTextField tecnico, JTextField valor, JTextField ChaveEstrangeira){
      Dao conexao = new Dao();
      conexao.IniciarConexao();
      OrdensDeServico InsertOs = new OrdensDeServico();
      try {
          InsertOs.setOs(Integer.parseInt(Numeros.getText()));
 
-         InsertOs.setData_os(Timestamp.valueOf(DataOs.getText()));
+         InsertOs.setData_os(new Timestamp(System.currentTimeMillis()));
 
          InsertOs.setEquipamento(Equipamento.getText());
 
@@ -24,9 +25,19 @@ public class CadastrarOS {
 
          InsertOs.setTecnico(tecnico.getText());
 
-         conexao.em.getTransaction().begin();
-         conexao.em.persist(InsertOs);
-         conexao.em.getTransaction().commit();
+         int idCli = Integer.parseInt(ChaveEstrangeira.getText());
+
+         Clientes cliente = conexao.em.find(Clientes.class, idCli);
+         if (cliente == null){
+             JOptionPane.showMessageDialog(null, "cliente nao encontrado");
+         }else{
+            InsertOs.setCliente(cliente);
+             conexao.em.getTransaction().begin();
+             conexao.em.persist(InsertOs);
+             conexao.em.getTransaction().commit();
+         }
+
+
 
      }catch (Exception e ){
          JOptionPane.showMessageDialog(null, "Erro de conexao" + e.getMessage());
