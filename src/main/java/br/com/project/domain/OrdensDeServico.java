@@ -22,6 +22,7 @@ public class OrdensDeServico {
 
     private String tecnico;
 
+    @Column(name = "preco_servico")
     private Double valor;
 
     @ManyToOne
