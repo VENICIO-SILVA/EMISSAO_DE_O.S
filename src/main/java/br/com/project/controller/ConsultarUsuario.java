@@ -17,7 +17,6 @@ public class ConsultarUsuario {
         List<Clientes> resultados = new ArrayList<>();
 
         try {
-            //todo estudar esse jpql
             String jpql = "SELECT c FROM Clientes c WHERE c.nome LIKE :nome";
             TypedQuery<Clientes> query = conexao.em.createQuery(jpql, Clientes.class);
             query.setParameter("nome", "%" + nomeCli.getText() + "%");
