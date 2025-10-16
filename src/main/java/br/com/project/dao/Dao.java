@@ -12,15 +12,24 @@ public class Dao {
 
     }
     public void IniciarConexao() {
-        try {//try-catch para captura de erro ao realizar conexao com o banco
-            emf = Persistence.createEntityManagerFactory("Ordem_De_Servico");
-            em = emf.createEntityManager();
+        try {
+            this.emf = Persistence.createEntityManagerFactory("Ordem_De_Servico");
+            this.em = emf.createEntityManager();
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.out.println("Erro de Conexão");
+            e.printStackTrace(); // Mostra o erro real
         }
     }
     public void FecharConexao() {
-        this.em.close();
-        this.emf.close();
+        try {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+            if (emf != null && emf.isOpen()) {
+                emf.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao fechar conexão: " + e.getMessage());
+        }
     }
 }
