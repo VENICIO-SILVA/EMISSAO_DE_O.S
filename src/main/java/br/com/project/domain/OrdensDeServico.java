@@ -25,12 +25,32 @@ public class OrdensDeServico {
     @Column(name = "preco_servico")
     private Double valor;
 
+    private String status;
+
+    private String tipo;
+
     @ManyToOne
     @JoinColumn(name = "idcli")
     private Clientes cliente;
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     public int getOs() {
         return os;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setOs(int os) {
