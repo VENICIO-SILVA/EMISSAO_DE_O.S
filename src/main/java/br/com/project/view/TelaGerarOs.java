@@ -60,8 +60,8 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         LbOS = new javax.swing.JLabel();
         LbData = new javax.swing.JLabel();
         CampoNOS = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        RadioOrdenServico = new javax.swing.JRadioButton();
+        RadioOrcamento = new javax.swing.JRadioButton();
         CampoDataOs = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         CampoPesq = new javax.swing.JTextField();
@@ -109,9 +109,16 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
             }
         });
 
-        jRadioButton1.setText("ORDEM DE SERVIÇO");
+        RadioOrdenServico.setText("ORDEM DE SERVIÇO");
 
-        jRadioButton2.setText("ORÇAMENTO");
+        RadioOrcamento.setText("ORÇAMENTO");
+        RadioOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioOrcamentoActionPerformed(evt);
+            }
+        });
+
+        CampoDataOs.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,9 +133,9 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                         .addComponent(CampoDataOs)
                         .addGap(132, 132, 132))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton2)
+                        .addComponent(RadioOrcamento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton1)))
+                        .addComponent(RadioOrdenServico)))
                 .addGap(24, 24, 24))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
@@ -150,8 +157,8 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                     .addComponent(CampoDataOs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(RadioOrdenServico)
+                    .addComponent(RadioOrcamento))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
@@ -203,7 +210,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LbId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoId, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CampoId, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
         );
@@ -375,7 +382,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
 
     private void BtAddOsActionPerformed(ActionEvent evt) {
         CadastrarOS cadastrar = new CadastrarOS();
-        OrdensDeServico ordens = cadastrar.cadastrarOS(CampoNOS,CampoDataOs,CampoNomeEquip,
+        OrdensDeServico ordens = cadastrar.cadastrarOS(RadioOrcamento,jComboBox1,CampoNOS,CampoDataOs,CampoNomeEquip,
                 CampoServico,CampoDefeito,CampoTec,CampoValor, CampoId);
         if (ordens == null){
             JOptionPane.showMessageDialog(null, "Nao foi possivel cadastrar a Os");
@@ -435,6 +442,10 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         CampoId.setText(idcli);
     }//GEN-LAST:event_TabelaOsMouseClicked
 
+    private void RadioOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioOrcamentoActionPerformed
+        RadioOrcamento.getAccessibleContext();
+    }//GEN-LAST:event_RadioOrcamentoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAddOs;
@@ -456,6 +467,8 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LbId;
     private javax.swing.JLabel LbOS;
     private javax.swing.JLabel LbStatus;
+    private javax.swing.JRadioButton RadioOrcamento;
+    private javax.swing.JRadioButton RadioOrdenServico;
     private javax.swing.JTable TabelaOs;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
@@ -466,8 +479,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
