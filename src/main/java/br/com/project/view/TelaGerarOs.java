@@ -6,6 +6,7 @@ package br.com.project.view;
 
 import br.com.project.controller.CadastrarOS;
 import br.com.project.controller.ConsultarUsuario;
+import br.com.project.controller.ExcluirOs;
 import br.com.project.domain.Clientes;
 import br.com.project.domain.OrdensDeServico;
 import jakarta.persistence.Id;
@@ -13,6 +14,7 @@ import jakarta.persistence.Id;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
+import java.security.spec.ECField;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -59,7 +61,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         LbOS = new javax.swing.JLabel();
         LbData = new javax.swing.JLabel();
-        CampoNOS = new javax.swing.JTextField();
         RadioOrdenServico = new javax.swing.JRadioButton();
         RadioOrcamento = new javax.swing.JRadioButton();
         CampoDataOs = new javax.swing.JTextField();
@@ -84,7 +85,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         CampoValor = new javax.swing.JTextField();
         BtAddOs = new javax.swing.JButton();
         BtPesquisa = new javax.swing.JButton();
-        BtEdit = new javax.swing.JButton();
+        BtEditarOs = new javax.swing.JButton();
         BtImprimir = new javax.swing.JButton();
         BtExcluir = new javax.swing.JButton();
 
@@ -102,12 +103,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
 
         LbData.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         LbData.setText("DATA");
-
-        CampoNOS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoNOSActionPerformed(evt);
-            }
-        });
 
         RadioOrdenServico.setText("ORDEM DE SERVIÇO");
 
@@ -128,8 +123,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(CampoNOS)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(116, 116, 116)
                         .addComponent(CampoDataOs)
                         .addGap(132, 132, 132))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -152,9 +146,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                     .addComponent(LbOS)
                     .addComponent(LbData))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoNOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoDataOs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(CampoDataOs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RadioOrdenServico)
@@ -190,11 +182,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(TabelaOs);
 
         BtpesqID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8-pesquisar-67.png"))); // NOI18N
-        BtpesqID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtpesqIDActionPerformed(evt);
-            }
-        });
 
         LbId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LbId.setText("ID:");
@@ -278,7 +265,12 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
 
         BtPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/procurar.png"))); // NOI18N
 
-        BtEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar-arquivo.png"))); // NOI18N
+        BtEditarOs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar-arquivo.png"))); // NOI18N
+        BtEditarOs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtEditarOsActionPerformed(evt);
+            }
+        });
 
         BtImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/impressora.png"))); // NOI18N
 
@@ -325,7 +317,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BtAddOs, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BtEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BtEditarOs, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BtPesquisa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -375,14 +367,14 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                             .addComponent(BtPesquisa)
                             .addComponent(BtExcluir)
                             .addComponent(BtImprimir)
-                            .addComponent(BtEdit))))
+                            .addComponent(BtEditarOs))))
                 .addGap(156, 156, 156))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtAddOsActionPerformed(ActionEvent evt) {
         CadastrarOS cadastrar = new CadastrarOS();
-        OrdensDeServico ordens = cadastrar.cadastrarOS(RadioOrcamento,jComboBox1,CampoNOS,CampoDataOs,CampoNomeEquip,
+        OrdensDeServico ordens = cadastrar.cadastrarOS(RadioOrcamento,jComboBox1,CampoDataOs,CampoNomeEquip,
                 CampoServico,CampoDefeito,CampoTec,CampoValor, CampoId);
         if (ordens == null){
             JOptionPane.showMessageDialog(null, "Nao foi possivel cadastrar a Os");
@@ -429,11 +421,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void BtpesqIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtpesqIDActionPerformed
-
-    }//GEN-LAST:event_BtpesqIDActionPerformed
-
     private void TabelaOsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaOsMouseClicked
         int linha = TabelaOs.getSelectedRow();
         //o codigo abaixo diz " getvalue a linha que e recebida pela var INT na coluna 0 que representa o ID na tabela e depois para to String para
@@ -446,10 +433,17 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         RadioOrcamento.getAccessibleContext();
     }//GEN-LAST:event_RadioOrcamentoActionPerformed
 
+    private void BtEditarOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEditarOsActionPerformed
+        //todo nao faz sentindo a exclusao pq falta uma tela de pesquisa da orden antes de excluir
+        //todo remover o botao de exlcuir e colocar ele dentro de uma tela que vai ser gerada no botao de pesqusiar os
+        ExcluirOs  Excluir = new ExcluirOs();
+        Excluir.ExcluirOs();
+    }//GEN-LAST:event_BtEditarOsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAddOs;
-    private javax.swing.JButton BtEdit;
+    private javax.swing.JButton BtEditarOs;
     private javax.swing.JButton BtExcluir;
     private javax.swing.JButton BtImprimir;
     private javax.swing.JButton BtPesquisa;
@@ -457,7 +451,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     private javax.swing.JTextField CampoDataOs;
     private javax.swing.JTextField CampoDefeito;
     private javax.swing.JTextField CampoId;
-    private javax.swing.JTextField CampoNOS;
     private javax.swing.JTextField CampoNomeEquip;
     private javax.swing.JTextField CampoPesq;
     private javax.swing.JTextField CampoServico;
