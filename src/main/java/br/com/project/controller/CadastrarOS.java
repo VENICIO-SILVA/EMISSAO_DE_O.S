@@ -8,12 +8,11 @@ import javax.swing.*;
 import java.sql.Timestamp;
 
 public class CadastrarOS {
- public OrdensDeServico cadastrarOS(JRadioButton Orcamento, JComboBox<String> Status,JTextField Numeros, JTextField DataOs, JTextField Equipamento, JTextField servico, JTextField defeito,JTextField tecnico, JTextField valor, JTextField ChaveEstrangeira){
+ public OrdensDeServico cadastrarOS(JRadioButton Orcamento, JComboBox<String> Status, JTextField DataOs, JTextField Equipamento, JTextField servico, JTextField defeito,JTextField tecnico, JTextField valor, JTextField ChaveEstrangeira){
      Dao conexao = new Dao();
      conexao.IniciarConexao();
      OrdensDeServico InsertOs = new OrdensDeServico();
      try {
-         InsertOs.setOs(Integer.parseInt(Numeros.getText()));
 
          InsertOs.setData_os(new Timestamp(System.currentTimeMillis()));
 
