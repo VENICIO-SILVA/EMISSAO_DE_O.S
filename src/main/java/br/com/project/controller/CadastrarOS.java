@@ -25,6 +25,8 @@ public class CadastrarOS {
 
          InsertOs.setTecnico(tecnico.getText());
 
+         InsertOs.setValor(Double.parseDouble(valor.getText()));
+
          int idCli = Integer.parseInt(ChaveEstrangeira.getText());
 
          Clientes cliente = conexao.em.find(Clientes.class, idCli);
