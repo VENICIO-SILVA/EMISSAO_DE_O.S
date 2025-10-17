@@ -3,7 +3,6 @@ package br.com.project.domain;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
-import java.util.Timer;
 
 @Entity
 @Table(name = "os")
@@ -40,8 +39,8 @@ public class OrdensDeServico {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-    public int getOs() {
+    //todo verificar e estudar melhor o crud DEL
+    public int getOs(int NOS) {
         return os;
     }
 
