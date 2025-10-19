@@ -23,7 +23,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         initComponents();
     }
-
     //esse metodo serve para colocar o nome do usuario logado
     public void TelaPrincipal2(String UsuarioLogado) {//recebo o parametro do Usuario logado da tela de login.
         InfoUsuLogado.setText(UsuarioLogado);//seta o parametro recebido para oque quero mostrar no JFrame.
@@ -208,11 +207,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(Topico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(CapaTela, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(Desktop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
