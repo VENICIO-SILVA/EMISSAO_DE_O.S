@@ -39,8 +39,8 @@ public class OrdensDeServico {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    //todo verificar e estudar melhor o crud DEL
-    public int getOs(int NOS) {
+
+    public int getOs() {
         return os;
     }
 

@@ -14,7 +14,7 @@ public class ExcluirOs {
         try {
             int NOS = Integer.parseInt(Numero_Os.getText());
             conexao.em.getTransaction().begin();
-            conexao.em.find(OrdensDeServico.class,OS.getOs(NOS));
+            conexao.em.find(OrdensDeServico.class,OS.getOs());
             conexao.em.getTransaction().commit();
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Erro de conexao com banco de dados" + e.getMessage());
