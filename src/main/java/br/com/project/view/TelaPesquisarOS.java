@@ -36,10 +36,22 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
     //todo ja tem a correção no chat para e4studar da ordenação dos dados consulta
     private void PesquisarOs() {
         ConsultarOs consulta = new ConsultarOs();
+
         List<OrdensDeServico> List = consulta.Consulta(CampoPesquisaOS);
-        DefaultTableModel model = new DefaultTableModel(new Object[]{"NºOS","DATA", "EQUIPAMENTO","DEFEITO","SERVIÇO","CLIENTE","TEC.RESPONSAVEL","TIPO","STATUS","VALOR"}, 0);
+
+        DefaultTableModel model = new DefaultTableModel(new Object[]{"NºOS", "DATA", "EQUIPAMENTO", "DEFEITO", "SERVIÇO", "CLIENTE", "TEC.RESPONSAVEL", "TIPO", "STATUS", "VALOR"}, 0);
         for (OrdensDeServico OS : List) {
-            model.addRow(new Object[]{OS.getOs(), OS.getData_os(),OS.getEquipamento(),OS.getDefeito(),OS.getServico(),OS.getValor(),OS.getCliente(),OS.getTecnico(),OS.getTipo(),OS.getStatus()});
+            model.addRow(new Object[]{
+                    OS.getOs(),
+                    OS.getData_os(),
+                    OS.getEquipamento(),
+                    OS.getDefeito(),
+                    OS.getServico(),
+                    OS.getCliente().getNome(),
+                    OS.getTecnico(),
+                    OS.getTipo(),
+                    OS.getStatus(),
+                    OS.getValor()});
         }
         TabelaPesquisarOS.setModel(model);
     }
@@ -106,24 +118,23 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1516, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(IconePesquisa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CampoPesquisaOS, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(IconeDuvida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(30, 30, 30))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(IconePesquisa)
-                        .addComponent(IconeDuvida))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(IconeDuvida, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(IconePesquisa))
                     .addComponent(CampoPesquisaOS))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
