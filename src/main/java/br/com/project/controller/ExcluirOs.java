@@ -5,21 +5,30 @@ import br.com.project.domain.OrdensDeServico;
 
 import javax.swing.*;
 
-//todo Nao esta pronta vai ser usada depois
 public class ExcluirOs {
-    public OrdensDeServico ExcluirOs(JTextField Numero_Os){
+    public OrdensDeServico ExcluirOs(JTextField Numero_Os) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
         OrdensDeServico OS = new OrdensDeServico();
         try {
-            int NOS = Integer.parseInt(Numero_Os.getText());
-            conexao.em.getTransaction().begin();
-            conexao.em.find(OrdensDeServico.class,OS.getOs());
-            conexao.em.getTransaction().commit();
-        }catch (Exception e){
+            int NºOS = Integer.parseInt(Numero_Os.getText());
+            OS = conexao.em.find(OrdensDeServico.class, NºOS);
+
+            if (OS != null) {
+                conexao.em.getTransaction().begin();
+                conexao.em.remove(OS);
+                conexao.em.getTransaction().commit();
+                JOptionPane.showMessageDialog(null, "OS exlcuidad com sucesso");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "OS nao encontrada");
+                return null;
+            }
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com banco de dados" + e.getMessage());
 
-        }finally {
+        } finally {
             conexao.FecharConexao();
         }
         return OS;
