@@ -14,13 +14,21 @@ public class ConsultarOs {
     public List<OrdensDeServico> Consulta(JTextField idcli) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
-        //todo ja tem a correção no chatgpt estudar para entender a logica da consulta pela chave estrangeira
         List<OrdensDeServico> resultados = new ArrayList<>();
 
         try {
-            String jpql = "SELECT c FROM OrdensDeServico c WHERE c.idcli LIKE :idcli";
+            String texto = idcli.getText().trim(); // remove espaços no começo e no fim
+
+            if (texto.isEmpty()) {
+                return resultados; // ou apenas sai do método
+            }
+            //essa verificação serve para caso a seja digitado uma letra no campo de pesquisa nao caia no catch Exception
+            if (texto.matches("[a-zA-Z]+")) {
+                return resultados;
+            }
+            String jpql = "SELECT c FROM OrdensDeServico c WHERE c.cliente.id = :idcli";
             TypedQuery<OrdensDeServico> query = conexao.em.createQuery(jpql, OrdensDeServico.class);
-            query.setParameter("idcli", "%" + idcli.getText() + "%");
+            query.setParameter("idcli", Integer.parseInt(idcli.getText()));
             resultados.addAll(query.getResultList());
             if (resultados.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Este Cliente nao possui OS em aberto");
