@@ -350,13 +350,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
             CampoDataOs.setText(formato.format(data));
         }
     }
-
-    private void CampoPesquisaActionPerformed(ActionEvent evt) {
-    }
-
-    private void CampoNOSActionPerformed(ActionEvent evt) {
-    }
-
     private void CampoNomeEquipActionPerformed(ActionEvent evt) {
     }
 

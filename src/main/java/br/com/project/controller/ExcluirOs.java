@@ -17,7 +17,7 @@ public class ExcluirOs {
                 conexao.em.getTransaction().begin();
                 conexao.em.remove(OS);
                 conexao.em.getTransaction().commit();
-                JOptionPane.showMessageDialog(null, "OS exlcuidad com sucesso");
+                JOptionPane.showMessageDialog(null, "OS Excluida com sucesso");
 
             } else {
                 JOptionPane.showMessageDialog(null, "OS nao encontrada");

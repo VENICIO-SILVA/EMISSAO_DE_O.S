@@ -146,8 +146,6 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
         LbOsSelecionada.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LbOsSelecionada.setText("O.S SELECIONADA:");
 
-        CampoOsSelecionada.setText("jTextField1");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
