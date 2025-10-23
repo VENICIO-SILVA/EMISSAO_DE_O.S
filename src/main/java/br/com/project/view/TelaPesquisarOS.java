@@ -5,6 +5,7 @@
 package br.com.project.view;
 
 import br.com.project.controller.ConsultarOs;
+import br.com.project.controller.ExcluirOs;
 import br.com.project.domain.OrdensDeServico;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -32,8 +33,6 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
             }
         });
     }
-
-    //todo ja tem a correção no chat para e4studar da ordenação dos dados consulta
     private void PesquisarOs() {
         ConsultarOs consulta = new ConsultarOs();
 
@@ -72,12 +71,19 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
         CampoPesquisaOS = new javax.swing.JTextField();
         IconePesquisa = new javax.swing.JLabel();
         IconeDuvida = new javax.swing.JLabel();
+        BtImprimirOS = new javax.swing.JButton();
+        BtEditarOS1 = new javax.swing.JButton();
+        BtExcluirOS1 = new javax.swing.JButton();
+        LbPegaIdOS = new javax.swing.JLabel();
+        LbOsSelecionada = new javax.swing.JLabel();
+        CampoOsSelecionada = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PesquisarOS");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
+        TabelaPesquisarOS.setBackground(new java.awt.Color(204, 204, 204));
         TabelaPesquisarOS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -89,6 +95,11 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
                 "NºOS", "DATA", "EQUIPAMENTO", "DEFEITO", "SERVIÇO", "CLIENTE", "TEC.RESPONSAVEL", "TIPO", "STATUS", "VALOR"
             }
         ));
+        TabelaPesquisarOS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelaPesquisarOSMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TabelaPesquisarOS);
 
         CampoPesquisaOS.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,6 +122,32 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
             }
         });
 
+        BtImprimirOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/impressora (1).png"))); // NOI18N
+        BtImprimirOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtImprimirOSActionPerformed(evt);
+            }
+        });
+
+        BtEditarOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar-arquivo.png"))); // NOI18N
+        BtEditarOS1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtEditarOS1ActionPerformed(evt);
+            }
+        });
+
+        BtExcluirOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-arquivo.png"))); // NOI18N
+        BtExcluirOS1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtExcluirOS1ActionPerformed(evt);
+            }
+        });
+
+        LbOsSelecionada.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LbOsSelecionada.setText("O.S SELECIONADA:");
+
+        CampoOsSelecionada.setText("jTextField1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,27 +155,59 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1516, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1510, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(IconePesquisa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CampoPesquisaOS, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(IconeDuvida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
+                        .addGap(30, 30, 30))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BtEditarOS1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtExcluirOS1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtImprimirOS)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(560, 560, 560)
+                                .addComponent(LbPegaIdOS, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(CampoOsSelecionada, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LbOsSelecionada, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(IconeDuvida, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(IconePesquisa))
-                    .addComponent(CampoPesquisaOS))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(CampoPesquisaOS, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtExcluirOS1)
+                            .addComponent(BtEditarOS1)
+                            .addComponent(BtImprimirOS)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(LbOsSelecionada)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CampoOsSelecionada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(32, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LbPegaIdOS)
+                        .addGap(59, 59, 59))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,6 +263,26 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
         }).start();
     }//GEN-LAST:event_IconeDuvidaMouseEntered
 
+    private void BtImprimirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtImprimirOSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtImprimirOSActionPerformed
+
+    private void BtEditarOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEditarOS1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtEditarOS1ActionPerformed
+
+    private void BtExcluirOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtExcluirOS1ActionPerformed
+        ExcluirOs Excluir = new ExcluirOs();
+        OrdensDeServico OS = Excluir.ExcluirOs(CampoOsSelecionada);
+    }//GEN-LAST:event_BtExcluirOS1ActionPerformed
+
+    private void TabelaPesquisarOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaPesquisarOSMouseClicked
+        int linha = TabelaPesquisarOS.getSelectedRow();
+
+        String IdOs = TabelaPesquisarOS.getValueAt(linha, 0).toString();
+        CampoOsSelecionada.setText(IdOs);
+    }//GEN-LAST:event_TabelaPesquisarOSMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -220,9 +309,15 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtEditarOS1;
+    private javax.swing.JButton BtExcluirOS1;
+    private javax.swing.JButton BtImprimirOS;
+    private javax.swing.JTextField CampoOsSelecionada;
     private javax.swing.JTextField CampoPesquisaOS;
     private javax.swing.JLabel IconeDuvida;
     private javax.swing.JLabel IconePesquisa;
+    private javax.swing.JLabel LbOsSelecionada;
+    private javax.swing.JLabel LbPegaIdOS;
     private javax.swing.JTable TabelaPesquisarOS;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;

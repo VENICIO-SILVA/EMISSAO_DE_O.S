@@ -58,7 +58,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
 
         jLabel11 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        LbOS = new javax.swing.JLabel();
         LbData = new javax.swing.JLabel();
         RadioOrdenServico = new javax.swing.JRadioButton();
         RadioOrcamento = new javax.swing.JRadioButton();
@@ -84,7 +83,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         CampoValor = new javax.swing.JTextField();
         BtAddOs = new javax.swing.JButton();
         BtPesquisa = new javax.swing.JButton();
-        BtImprimir = new javax.swing.JButton();
 
         jLabel11.setText("jLabel11");
 
@@ -94,9 +92,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(900, 600));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-        LbOS.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        LbOS.setText("Nº OS");
 
         LbData.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         LbData.setText("DATA");
@@ -118,30 +113,24 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(CampoDataOs)
-                        .addGap(132, 132, 132))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(RadioOrcamento)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RadioOrdenServico)))
+                .addComponent(RadioOrcamento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RadioOrdenServico)
                 .addGap(24, 24, 24))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(LbOS)
-                .addGap(57, 57, 57)
+                .addGap(15, 15, 15)
                 .addComponent(LbData)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CampoDataOs)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LbOS)
-                    .addComponent(LbData))
+                .addComponent(LbData)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoDataOs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -268,8 +257,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
             }
         });
 
-        BtImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/impressora.png"))); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -306,9 +293,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BtAddOs, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BtPesquisa)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BtImprimir))))
+                                .addComponent(BtPesquisa))))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -348,8 +333,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BtAddOs)
-                            .addComponent(BtPesquisa)
-                            .addComponent(BtImprimir))))
+                            .addComponent(BtPesquisa))))
                 .addGap(156, 156, 156))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -420,7 +404,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAddOs;
-    private javax.swing.JButton BtImprimir;
     private javax.swing.JButton BtPesquisa;
     private javax.swing.JButton BtpesqID;
     private javax.swing.JTextField CampoDataOs;
@@ -433,7 +416,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     private javax.swing.JTextField CampoValor;
     private javax.swing.JLabel LbData;
     private javax.swing.JLabel LbId;
-    private javax.swing.JLabel LbOS;
     private javax.swing.JLabel LbStatus;
     private javax.swing.JRadioButton RadioOrcamento;
     private javax.swing.JRadioButton RadioOrdenServico;
