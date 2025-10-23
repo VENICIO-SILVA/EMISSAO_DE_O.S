@@ -13,7 +13,6 @@ public class ExcluirOs {
         try {
             int NºOS = Integer.parseInt(Numero_Os.getText());
             OS = conexao.em.find(OrdensDeServico.class, NºOS);
-
             if (OS != null) {
                 conexao.em.getTransaction().begin();
                 conexao.em.remove(OS);
