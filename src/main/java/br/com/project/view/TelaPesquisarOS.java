@@ -6,6 +6,7 @@ package br.com.project.view;
 
 import br.com.project.controller.ConsultarOs;
 import br.com.project.controller.ExcluirOs;
+import br.com.project.controller.GerarPdf;
 import br.com.project.domain.OrdensDeServico;
 
 import javax.swing.*;
@@ -66,8 +67,6 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        jPopupMenu1 = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaPesquisarOS = new javax.swing.JTable();
@@ -265,7 +264,13 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
     }//GEN-LAST:event_IconeDuvidaMouseEntered
 
     private void BtImprimirOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtImprimirOSActionPerformed
-        // TODO add your handling code here:
+        if (CampoOsSelecionada.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Selecione uma O.S primeiro!");
+            return;
+        }
+
+        GerarPdf gerar = new GerarPdf();
+        gerar.gerar(CampoOsSelecionada.getText());
     }//GEN-LAST:event_BtImprimirOSActionPerformed
 
     private void BtEditarOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEditarOS1ActionPerformed
@@ -322,7 +327,6 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
     private javax.swing.JLabel LbPegaIdOS;
     private javax.swing.JTable TabelaPesquisarOS;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
