@@ -266,7 +266,8 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
     }//GEN-LAST:event_BtImprimirOSActionPerformed
 
     private void BtEditarOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEditarOS1ActionPerformed
-        // TODO add your handling code here:
+        TelaEditarOS iniciar = new TelaEditarOS();
+        iniciar.setVisible(true);
     }//GEN-LAST:event_BtEditarOS1ActionPerformed
 
     private void BtExcluirOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtExcluirOS1ActionPerformed
