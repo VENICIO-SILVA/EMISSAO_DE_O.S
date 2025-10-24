@@ -39,3 +39,4 @@ build/
 /src/main/java/br/com/project/view/TelaGerarOs.form
 /src/main/java/br/com/project/view/TelaPesquisarOS.form
 /src/main/java/br/com/project/view/EditarOS.form
+/src/main/java/br/com/project/view/TelaGerarRelatorio.form
