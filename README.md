@@ -15,7 +15,7 @@ O objetivo é praticar o desenvolvimento de um sistema completo de cadastro, pes
 - Cadastro de **Ordens de Serviço** e de **Clientes/Administradores**.  
 - **Edição e Exclusão** de Ordens de Serviço e de Clientes/Administradores.  
 - **Geração de Relatórios** de serviços em PDF.  
-- Controle de funcionalidades baseado no **tipo de usuário logado** no sistema.
+- Controle de funcionalidades de acordo com usuario logado **admin//cliente** **tipo de usuário logado** no sistema.
 
 ---
 
