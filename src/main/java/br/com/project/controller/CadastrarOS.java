@@ -5,6 +5,7 @@ import br.com.project.domain.Clientes;
 import br.com.project.domain.OrdensDeServico;
 
 import javax.swing.*;
+import java.awt.*;
 import java.sql.Timestamp;
 
 public class CadastrarOS {
@@ -49,6 +50,7 @@ public class CadastrarOS {
      }finally {
          conexao.FecharConexao();
      }
+     JOptionPane.showMessageDialog(null,"Ordem de Serviço Emitida Com Sucesso!");
      return InsertOs;
  }
 }
