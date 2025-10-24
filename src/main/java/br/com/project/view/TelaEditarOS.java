@@ -4,19 +4,23 @@
  */
 package br.com.project.view;
 
+import javax.swing.*;
+import java.sql.Timestamp;
+
 /**
  *
  * @author Venicio
  */
 public class TelaEditarOS extends javax.swing.JFrame {
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaEditarOS.class.getName());
-
     /**
      * Creates new form EditarOS
      */
     public TelaEditarOS() {
         initComponents();
+    }
+    public void DadosOS(String NOS){
+        CampoNOS.setText(NOS);
     }
 
     /**
@@ -268,6 +272,9 @@ public class TelaEditarOS extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void GetInfoOs(Timestamp Data, JTextField Equipamento, JTextField Defeito, JTextField Servico, JTextField Cliente, JTextField Tecnico, JTextField Status, JTextField valor){
+
+    }
 
     private void ComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxTipoActionPerformed
         // TODO add your handling code here:
