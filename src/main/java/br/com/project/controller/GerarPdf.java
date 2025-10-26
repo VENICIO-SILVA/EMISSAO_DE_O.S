@@ -40,7 +40,8 @@ public class GerarPdf {
 
             document.add(new Paragraph("\n"));
 
-            Font corpoFont = new Font(Font.HELVETICA, 12, Font.NORMAL);
+            Font corpoFont = new Font(Font.HELVETICA, 18, Font.NORMAL);
+            document.add(new Paragraph("RELATÓRIO DE SERVIÇO", corpoFont));
             document.add(new Paragraph("Data: " + os.getData_os(), corpoFont));
             document.add(new Paragraph("Cliente: " + os.getCliente().getNome(), corpoFont));
             document.add(new Paragraph("Equipamento: " + os.getEquipamento(), corpoFont));
