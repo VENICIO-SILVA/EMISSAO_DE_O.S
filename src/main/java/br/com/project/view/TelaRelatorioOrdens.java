@@ -7,13 +7,13 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.util.Locale;
 
-public class TelaGerarRelatorio extends javax.swing.JInternalFrame {
+public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
 
     private DatePicker dataInicio;
     private DatePicker dataFim;
     private JButton btnGerarRelatorio;
 
-    public TelaGerarRelatorio() {
+    public TelaRelatorioOrdens() {
         // Aplica visual moderno
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
