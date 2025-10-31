@@ -9,11 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GerarRelatorio {
-    public static void gerarRelatorio() {
+
+    //esse parametro vai servir para quando iniciar o relatorio enviar o caminho correto para gerar o relatorio correto
+    //pois existem 3 tipos 1- clientes 2-ordens 3-valores
+    public static void gerarRelatorio(String caminho) {
     Dao conexao = new Dao();
         try {
 
-            InputStream caminho = GerarRelatorio.class.getResourceAsStream("/relatorios/BaseRelatorioO.S.jrxml");
+            InputStream LocalArquivo = GerarRelatorio.class.getResourceAsStream(caminho);
 
             if (caminho == null) {
                 System.out.println("⚠️ Arquivo .jrxml não encontrado!");
