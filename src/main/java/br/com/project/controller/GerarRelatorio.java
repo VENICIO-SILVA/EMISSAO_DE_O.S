@@ -3,6 +3,7 @@ package br.com.project.controller;
 import br.com.project.dao.Dao;
 import net.sf.jasperreports.engine.*;
 
+import javax.swing.*;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +12,7 @@ public class GerarRelatorio {
     public static void gerarRelatorio() {
     Dao conexao = new Dao();
         try {
+
             InputStream caminho = GerarRelatorio.class.getResourceAsStream("/relatorios/BaseRelatorioO.S.jrxml");
 
             if (caminho == null) {
@@ -30,7 +32,8 @@ public class GerarRelatorio {
             System.out.println("✅ Relatório gerado com sucesso!");
 
         } catch (Exception e) {
-            e.printStackTrace();
+
+            JOptionPane.showMessageDialog(null,"Erro de conexão com banco de dados" + e.getMessage());
         }
     }
 }
