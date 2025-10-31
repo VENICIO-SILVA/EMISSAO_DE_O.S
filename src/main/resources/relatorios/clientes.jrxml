@@ -1,0 +1,154 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="clientes" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="e9bb1a27-f975-4aa4-98f9-75524c5daafa">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="cHJvamV0b29zLmNsaWVudGVzIEFTICwxMTEsMTA5LDdlNDc1ODcxLTI5NmEtNDY0MS05NTc1LWNi&#xa;MjNhNzQ5MWNiZDs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="projetoos"/>
+	<style name="Title" fontName="Arial" fontSize="26.0" bold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18.0"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12.0" bold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12.0"/>
+	<query language="SQL"><![CDATA[SELECT  * FROM projetoos.clientes]]></query>
+	<field name="idCli" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idCli"/>
+		<property name="com.jaspersoft.studio.field.label" value="idCli"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="Endereco" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Endereco"/>
+		<property name="com.jaspersoft.studio.field.label" value="Endereco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telefone"/>
+		<property name="com.jaspersoft.studio.field.label" value="telefone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="gmail" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="gmail"/>
+		<property name="com.jaspersoft.studio.field.label" value="gmail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="perfil" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="perfil"/>
+		<property name="com.jaspersoft.studio.field.label" value="perfil"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="senha" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="senha"/>
+		<property name="com.jaspersoft.studio.field.label" value="senha"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<background height="822" splitType="Stretch">
+		<element kind="image" uuid="6be67a9c-1fb8-44ea-93c5-22c7de2c74ad" positionType="Float" mode="Transparent" x="-20" y="313" width="105" height="409" vImageAlign="Bottom">
+		</element>
+		<element kind="frame" uuid="58048a65-569d-454e-b6dd-f3bb46c94ee3" mode="Opaque" x="-20" y="722" width="105" height="100" forecolor="#666666" backcolor="#666666">
+			<element kind="textField" uuid="0f40ce36-78f2-49e5-adf5-8855d6516e74" x="0" y="0" width="104" height="73" forecolor="#000000" fontSize="58.0" blankWhenNull="true" bold="true" hTextAlign="Center" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+			</element>
+			<element kind="textField" uuid="e06a687c-0f3f-4451-a45e-f88c505ba589" x="0" y="77" width="104" height="20" forecolor="#000000" fontSize="16.0" evaluationTime="Report" bold="false" hTextAlign="Center" style="Column header">
+				<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+				<box leftPadding="4" rightPadding="4" style="Column header"/>
+			</element>
+			<element kind="line" uuid="ab96a4b0-8a0d-4ae2-8695-16868926ec2b" mode="Transparent" x="42" y="73" width="20" height="1"/>
+			<box>
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
+	</background>
+	<title height="152" splitType="Stretch">
+		<element kind="staticText" uuid="524767a9-e7e5-4041-9b08-5a7210b38e22" x="0" y="0" width="555" height="115" fontSize="54.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Title">
+			<text><![CDATA[WAVES TITLE]]></text>
+		</element>
+		<element kind="staticText" uuid="bd605e96-6228-492c-9dd6-f33258081a5a" x="234" y="115" width="321" height="37" fontSize="26.0" hTextAlign="Right" style="SubTitle">
+			<text><![CDATA[Waves SubTitle]]></text>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="25" splitType="Stretch">
+		<element kind="frame" uuid="eb0fefed-b830-492b-a0c9-ec23411537a7" mode="Opaque" x="97" y="5" width="458" height="20" backcolor="#666666">
+			<element kind="staticText" uuid="ffbdb0a2-703c-4c27-8a45-8938936c584a" x="0" y="0" width="65" height="15" style="Column header">
+				<text><![CDATA[idCli]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="63c8d795-e2bf-4483-abe3-82cb08fcbeab"/>
+			</element>
+			<element kind="staticText" uuid="545c95e6-0b90-415a-a03f-f8ebeb4c8ec6" x="65" y="0" width="65" height="15" style="Column header">
+				<text><![CDATA[nome]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a836a080-8a43-4ac3-950b-56847ac11663"/>
+			</element>
+			<element kind="staticText" uuid="621510fd-e1da-49b5-adbc-5228e421c65c" x="130" y="0" width="65" height="15" style="Column header">
+				<text><![CDATA[Endereco]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fa9ea1ec-3948-4cc3-a8f7-835891205918"/>
+			</element>
+			<element kind="staticText" uuid="b0665361-27af-4c52-b00f-8f60e91d6e0f" x="195" y="0" width="65" height="15" style="Column header">
+				<text><![CDATA[telefone]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79b6ca90-1d1d-4f47-bdca-293b4d2e3d19"/>
+			</element>
+			<element kind="staticText" uuid="055f5b2c-c22d-456d-8a19-7b804f205141" x="260" y="0" width="65" height="15" style="Column header">
+				<text><![CDATA[gmail]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43f5ce48-573b-4422-91ce-ffc9f0d71c4c"/>
+			</element>
+			<element kind="staticText" uuid="8c2fe075-5bd8-4238-80e5-9ba13d8c20e6" x="325" y="0" width="65" height="15" style="Column header">
+				<text><![CDATA[perfil]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73fa4794-33c1-40b9-8722-3110dea709af"/>
+			</element>
+			<element kind="staticText" uuid="9c024d9a-602f-408f-9d84-774268ee816d" x="390" y="0" width="65" height="15" style="Column header">
+				<text><![CDATA[senha]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="496988cf-c07e-4bd2-9149-bd47a0839747"/>
+			</element>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<element kind="frame" uuid="5d75be3e-ea39-4b96-baf8-b49497315044" x="97" y="1" width="458" height="15">
+				<element kind="textField" uuid="fa63f3e0-cca8-4288-9be6-f70d96d3e2b7" x="0" y="0" width="65" height="15" style="Detail">
+					<expression><![CDATA[$F{idCli}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="63c8d795-e2bf-4483-abe3-82cb08fcbeab"/>
+				</element>
+				<element kind="textField" uuid="7e98f549-1cdd-496d-93e8-ff5058ed9f28" x="65" y="0" width="65" height="15" style="Detail">
+					<expression><![CDATA[$F{nome}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a836a080-8a43-4ac3-950b-56847ac11663"/>
+				</element>
+				<element kind="textField" uuid="4624861d-783c-4167-83af-d9d7beeffc17" x="130" y="0" width="65" height="15" style="Detail">
+					<expression><![CDATA[$F{Endereco}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fa9ea1ec-3948-4cc3-a8f7-835891205918"/>
+				</element>
+				<element kind="textField" uuid="ba72e29b-3314-4bb6-91dd-1208f6590f59" x="195" y="0" width="65" height="15" style="Detail">
+					<expression><![CDATA[$F{telefone}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79b6ca90-1d1d-4f47-bdca-293b4d2e3d19"/>
+				</element>
+				<element kind="textField" uuid="1caee765-bf24-49d8-a79f-d8a498687501" x="260" y="0" width="65" height="15" style="Detail">
+					<expression><![CDATA[$F{gmail}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43f5ce48-573b-4422-91ce-ffc9f0d71c4c"/>
+				</element>
+				<element kind="textField" uuid="b179f965-4a80-4aff-85c4-fd18fa308b9c" x="325" y="0" width="65" height="15" style="Detail">
+					<expression><![CDATA[$F{perfil}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73fa4794-33c1-40b9-8722-3110dea709af"/>
+				</element>
+				<element kind="textField" uuid="2fa88488-dc7d-4015-a110-305c31f48c9e" x="390" y="0" width="65" height="15" style="Detail">
+					<expression><![CDATA[$F{senha}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="496988cf-c07e-4bd2-9149-bd47a0839747"/>
+				</element>
+			</element>
+			<element kind="line" uuid="2b97af27-2a1e-491f-a0f4-b2549a3510ee" positionType="FixRelativeToBottom" x="97" y="16" width="458" height="1">
+				<pen lineWidth="0.5" lineColor="#999999"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter height="100" splitType="Stretch">
+		<element kind="textField" uuid="f8570c2f-4404-4725-885a-4eb3c26abb4a" x="424" y="0" width="131" height="20" forecolor="#000000" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" bold="false" hTextAlign="Right" style="Column header">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="staticText" uuid="fce324aa-31f5-453a-a957-28bc6f740c75" x="96" y="0" width="267" height="20" forecolor="#000000" fontSize="12.0" bold="false" style="Column header">
+			<text><![CDATA[Waves Title Report]]></text>
+		</element>
+	</pageFooter>
+	<summary splitType="Stretch"/>
+</jasperReport>

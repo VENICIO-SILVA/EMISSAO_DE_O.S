@@ -42,3 +42,4 @@ build/
 /src/main/java/br/com/project/view/TelaGerarRelatorio.form
 /src/main/java/br/com/project/view/ViewRelatorioClientes.form
 /src/main/java/br/com/project/view/TelaRelatorioValores.form
+/src/main/java/br/com/project/view/TelaRelatorioOrdens.form
