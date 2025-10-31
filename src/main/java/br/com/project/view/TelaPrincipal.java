@@ -309,7 +309,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_CadastrarOsActionPerformed
 
     private void MenuRelatorioClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRelatorioClientesActionPerformed
-        ViewRelatorioClientes iniciar = new ViewRelatorioClientes();
+        TelaRelatorioCliente iniciar = new TelaRelatorioCliente();
         iniciar.setVisible(true);
         Desktop.add(iniciar);
     }//GEN-LAST:event_MenuRelatorioClientesActionPerformed
@@ -324,7 +324,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuSobreActionPerformed
 
     private void MenuRelatorioServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRelatorioServicoActionPerformed
-        TelaGerarRelatorio iniciar = new TelaGerarRelatorio();
+        TelaRelatorioOrdens iniciar = new TelaRelatorioOrdens();
         iniciar.setVisible(true);
         Desktop.add(iniciar);
     }//GEN-LAST:event_MenuRelatorioServicoActionPerformed

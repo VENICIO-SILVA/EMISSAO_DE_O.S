@@ -6,7 +6,6 @@ package br.com.project.view;
 
 import br.com.project.controller.ConsultarOs;
 import br.com.project.controller.ExcluirOs;
-import br.com.project.controller.GerarPdf;
 import br.com.project.domain.OrdensDeServico;
 
 import javax.swing.*;
@@ -269,8 +268,7 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
             return;
         }
 
-        GerarPdf gerar = new GerarPdf();
-        gerar.gerar(CampoOsSelecionada.getText());
+
     }//GEN-LAST:event_BtImprimirOSActionPerformed
 
     private void BtEditarOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEditarOS1ActionPerformed
