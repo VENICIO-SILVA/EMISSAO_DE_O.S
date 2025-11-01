@@ -1,9 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package br.com.project.view;
 
+import com.github.lgooddatepicker.optionalusertools.CalendarListener;
+import com.github.lgooddatepicker.zinternaltools.CalendarSelectionEvent;
+import com.github.lgooddatepicker.zinternaltools.YearMonthChangeEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 /**
  *
  * @author Venicio
@@ -15,19 +19,38 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
      */
     com.github.lgooddatepicker.components.CalendarPanel calendario =
             new com.github.lgooddatepicker.components.CalendarPanel();
+
+    private JTextField camposelecionado; //recebe a informação de qual campo foi selecionado, atraves do EVt click do mouse gerado!
+
     public TelaRelatorioOrdens() {
         initComponents();
 
 
         // Configura o layout do painel e adiciona o calendário
-        PainelCalendario.setLayout(new java.awt.BorderLayout());
-        PainelCalendario.add(calendario, java.awt.BorderLayout.CENTER);
+        PainelCalendario.setLayout(new BorderLayout());
+        PainelCalendario.add(calendario, BorderLayout.CENTER);
 
         // Atualiza o painel
         PainelCalendario.revalidate();
         PainelCalendario.repaint();
-        //todo Adicionar captura do click da data e passar par ao campo dataINicio
 
+        calendario.addCalendarListener(new CalendarListener() {
+            //metodo onde captura a data clicada e é passada para o campo selecionado "DE" e "ATÉ";
+            @Override
+            public void selectedDateChanged(CalendarSelectionEvent calendarSelectionEvent) {
+                if (calendarSelectionEvent.getNewDate() != null && camposelecionado != null){
+                    LocalDate dataF = calendarSelectionEvent.getNewDate();
+
+                    DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    camposelecionado.setText(dataF.format(formatador));
+                }
+            }
+
+            @Override
+            public void yearMonthChanged(YearMonthChangeEvent yearMonthChangeEvent) {
+
+            }
+        });
     }
 
     /**
@@ -59,6 +82,11 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
         LbFinalData.setText("ATÉ:");
 
         CampoInicioData1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CampoInicioData1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CampoInicioData1MouseClicked(evt);
+            }
+        });
         CampoInicioData1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoInicioData1ActionPerformed(evt);
@@ -66,6 +94,11 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
         });
 
         CampoFinalData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CampoFinalData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CampoFinalDataMouseClicked(evt);
+            }
+        });
         CampoFinalData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoFinalDataActionPerformed(evt);
@@ -82,12 +115,12 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout PainelCalendarioLayout = new javax.swing.GroupLayout(PainelCalendario);
         PainelCalendario.setLayout(PainelCalendarioLayout);
         PainelCalendarioLayout.setHorizontalGroup(
-            PainelCalendarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 416, Short.MAX_VALUE)
+                PainelCalendarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 684, Short.MAX_VALUE)
         );
         PainelCalendarioLayout.setVerticalGroup(
-            PainelCalendarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+                PainelCalendarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -102,39 +135,39 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbInicioData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoInicioData1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LbFinalData))
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoFinalData, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PainelCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(LbInicioData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(CampoInicioData1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(LbFinalData))
+                                        .addComponent(jButton1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CampoFinalData, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(PainelCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LbInicioData)
-                    .addComponent(LbFinalData)
-                    .addComponent(CampoInicioData1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoFinalData, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addComponent(jButton1)
-                .addContainerGap(296, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PainelCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(LbInicioData)
+                                        .addComponent(LbFinalData)
+                                        .addComponent(CampoInicioData1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(CampoFinalData, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(43, 43, 43)
+                                .addComponent(jButton1)
+                                .addContainerGap(467, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(PainelCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         // Cria o componente de calendário do LGoodDatePicker
@@ -157,6 +190,14 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
     private void PainelCalendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PainelCalendarioMouseClicked
 
     }//GEN-LAST:event_PainelCalendarioMouseClicked
+
+    private void CampoInicioData1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoInicioData1MouseClicked
+        camposelecionado = CampoInicioData1;
+    }//GEN-LAST:event_CampoInicioData1MouseClicked
+
+    private void CampoFinalDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoFinalDataMouseClicked
+        camposelecionado = CampoFinalData;
+    }//GEN-LAST:event_CampoFinalDataMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
