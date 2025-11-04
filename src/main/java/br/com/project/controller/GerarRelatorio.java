@@ -9,21 +9,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GerarRelatorio {
-
     //esse parametro vai servir para quando iniciar o relatorio enviar o caminho correto para gerar o relatorio correto
     //pois existem 3 tipos 1- clientes 2-ordens 3-valores
-    public static void gerarRelatorio(String caminho) {
+    public static void GerarRelatorio(String caminho) {
     Dao conexao = new Dao();
         try {
-
+            //procura o arquivo no projeto
             InputStream LocalArquivo = GerarRelatorio.class.getResourceAsStream(caminho);
 
-            if (caminho == null) {
+            //verifica se o arquivo existe
+            if (LocalArquivo == null) {
                 System.out.println("⚠️ Arquivo .jrxml não encontrado!");
                 return;
             }
-
-            JasperReport report = JasperCompileManager.compileReport(caminho);
+            //faz a conversao do arquivo encontrado para objeto java para que o Jasper Entenda o arquivo
+            JasperReport report = JasperCompileManager.compileReport(LocalArquivo);
 
             Map<String, Object> parametros = new HashMap<>();
             parametros.put("TITULO", "Relatório de Serviços");
