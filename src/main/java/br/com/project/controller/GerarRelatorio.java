@@ -9,8 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GerarRelatorio {
+
     //esse parametro vai servir para quando iniciar o relatorio enviar o caminho correto para gerar o relatorio correto
-    //pois existem 3 tipos 1- clientes 2-ordens 3-valores
+    //pois existem 3 tipos. 1- clientes, 2-ordens, 3-valores
+
     public static void GerarRelatorio(String caminho) {
     Dao conexao = new Dao();
         try {
