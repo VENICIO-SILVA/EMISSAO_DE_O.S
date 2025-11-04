@@ -1,6 +1,7 @@
 
 package br.com.project.view;
 
+import br.com.project.controller.GerarRelatorio;
 import com.github.lgooddatepicker.optionalusertools.CalendarListener;
 import com.github.lgooddatepicker.zinternaltools.CalendarSelectionEvent;
 import com.github.lgooddatepicker.zinternaltools.YearMonthChangeEvent;
@@ -12,6 +13,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Venicio
  */
+//todo colocar os dados da data na impressao do documento em pdf
 public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
 
     /**
@@ -129,7 +131,10 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+
+                GerarRelatorio.GerarRelatorio("/relatorios/BaseRelatorioO.S.jrxml");
             }
+
         });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
