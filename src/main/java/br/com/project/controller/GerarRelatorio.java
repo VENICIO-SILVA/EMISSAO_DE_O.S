@@ -13,7 +13,7 @@ public class GerarRelatorio {
     //esse parametro vai servir para quando iniciar o relatorio enviar o caminho correto para gerar o relatorio correto
     //pois existem 3 tipos. 1- clientes, 2-ordens, 3-valores
 
-    public static void GerarRelatorio(String caminho) {
+    public static void GerarRelatorio(String caminho, String Nome_De_Arquivo_Salvo) {
     Dao conexao = new Dao();
         try {
             //procura o arquivo no projeto
@@ -34,8 +34,7 @@ public class GerarRelatorio {
 
             JasperPrint print = JasperFillManager.fillReport(report, parametros, conexao.getConnection());
 
-            //todo configurar um meio para quando for relatorio de cliente ou de valores criar o arquivo com o nome de acordo e nao um unico nome
-            JasperExportManager.exportReportToPdfFile(print, "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Serviços.pdf");
+            JasperExportManager.exportReportToPdfFile(print, Nome_De_Arquivo_Salvo);
             System.out.println("✅ Relatório gerado com sucesso!");
 
         } catch (Exception e) {
