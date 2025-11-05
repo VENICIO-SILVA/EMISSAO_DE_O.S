@@ -132,7 +132,7 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
 
-                GerarRelatorio.GerarRelatorio("/relatorios/BaseRelatorioO.S.jrxml");
+                GerarRelatorio.GerarRelatorio("/relatorios/Ordens.jrxml" , "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Serviços.pdf");
             }
 
         });
