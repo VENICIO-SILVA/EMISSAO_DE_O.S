@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
  * @author Venicio
  */
 //todo colocar os dados da data na impressao do documento em pdf
-public class TelaRelatorioClientes extends javax.swing.JInternalFrame {
+public class TelaRelatorioValores extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaRelatorioOrdens
@@ -24,7 +24,7 @@ public class TelaRelatorioClientes extends javax.swing.JInternalFrame {
 
     private JTextField camposelecionado; //recebe a informação de qual campo foi selecionado, atraves do EVt click do mouse gerado!
 
-    public TelaRelatorioClientes() {
+    public TelaRelatorioValores() {
         initComponents();
 
 
@@ -75,7 +75,7 @@ public class TelaRelatorioClientes extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Relatorio de Clientes");
+        setTitle("Relatorio de Valores");
 
         LbInicioData.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         LbInicioData.setText("DE:");
@@ -130,8 +130,10 @@ public class TelaRelatorioClientes extends javax.swing.JInternalFrame {
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+
                 jButton1ActionPerformed(evt);
-                GerarRelatorio.GerarRelatorio("/relatorios/clientes.jrxml" , "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Clientes.pdf");
+                //todo criar o jrxml de valores somar todo o lucro da empresa pesquisar no chat como ter o dados de valores baseado em serviços concluidos
+                GerarRelatorio.GerarRelatorio("/relatorios/Ordens.jrxml" , "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Serviços.pdf");
             }
         });
 
@@ -172,6 +174,9 @@ public class TelaRelatorioClientes extends javax.swing.JInternalFrame {
                 .addComponent(PainelCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        // Cria o componente de calendário do LGoodDatePicker
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
