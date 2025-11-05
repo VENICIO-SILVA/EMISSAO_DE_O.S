@@ -54,7 +54,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         CadastrarAdm = new javax.swing.JMenuItem();
         CadastrarOs = new javax.swing.JMenuItem();
         BarRelatorio = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        MenuROrdens = new javax.swing.JMenuItem();
+        MenuRClientes = new javax.swing.JMenuItem();
+        MenuRValores = new javax.swing.JMenuItem();
         BarAjuda = new javax.swing.JMenu();
         MenuAtalhos = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -150,13 +152,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         BarRelatorio.setText("Relatório");
 
-        jMenuItem1.setText("1-Ordens");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        MenuROrdens.setText("1-Ordens");
+        MenuROrdens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                MenuROrdensActionPerformed(evt);
             }
         });
-        BarRelatorio.add(jMenuItem1);
+        BarRelatorio.add(MenuROrdens);
+
+        MenuRClientes.setText("2- Clientes");
+        MenuRClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuRClientesActionPerformed(evt);
+            }
+        });
+        BarRelatorio.add(MenuRClientes);
+
+        MenuRValores.setText("3- Valores");
+        BarRelatorio.add(MenuRValores);
 
         jMenuBar1.add(BarRelatorio);
 
@@ -296,11 +309,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         iniciar.setVisible(true);
     }//GEN-LAST:event_MenuSobreActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void MenuROrdensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuROrdensActionPerformed
         TelaRelatorioOrdens iniciar = new TelaRelatorioOrdens();
         iniciar.setVisible(true);
         Desktop.add(iniciar);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_MenuROrdensActionPerformed
+
+    private void MenuRClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRClientesActionPerformed
+        TelaRelatorioClientes iniciar = new TelaRelatorioClientes();
+        iniciar.setVisible(true);
+        Desktop.add(iniciar);
+    }//GEN-LAST:event_MenuRClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,11 +360,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuAtalhos;
     public static javax.swing.JMenuItem MenuCadastroCliente;
     private javax.swing.JMenuItem MenuLogout;
+    private javax.swing.JMenuItem MenuRClientes;
+    private javax.swing.JMenuItem MenuROrdens;
+    private javax.swing.JMenuItem MenuRValores;
     private javax.swing.JMenuItem MenuSair;
     private javax.swing.JMenuItem MenuSobre;
     private javax.swing.JLabel Topico;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
