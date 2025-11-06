@@ -1,6 +1,8 @@
 package br.com.project.controller;
 
 import br.com.project.dao.Dao;
+import br.com.project.domain.OrdensDeServico;
+import jakarta.persistence.TypedQuery;
 import net.sf.jasperreports.engine.*;
 
 import javax.swing.*;
@@ -21,22 +23,24 @@ public class GerarRelatorio {
     Dao conexao = new Dao();
         try {
             conexao.IniciarConexao();
-
+            String data1 = dataInicio.getText();
+            String data2=  dataFim.getText();
             //como os campos vem da tela como "Jtextfield e necessario
             //a conversao para DATA
             //todo provavelmente  as VAR dataI e dataF nao estao recebendo as datas vindas dos parametros
             DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate dataI = LocalDate.parse(dataInicio.getText());
-            LocalDate dataF = LocalDate.parse(dataFim.getText());
+            LocalDate dataI = LocalDate.parse(data1, formatador);
+            LocalDate dataF = LocalDate.parse(data2, formatador);
 
-            // Verifica se existem OS dentro do período selecionado
-            String sql = "SELECT COUNT(*) AS total FROM os WHERE data_os BETWEEN ? AND ?";
-            PreparedStatement pst = conexao.em.unwrap(java.sql.Connection.class).prepareStatement(sql);
-            pst.setDate(1, java.sql.Date.valueOf(dataI));
-            pst.setDate(2, java.sql.Date.valueOf(dataF));
-            ResultSet rs = pst.executeQuery();
+            //TODO CORRIGIR ERRO DE CONEXAO COM BANCO DE DADOS
+            String jpql = "SELECT COUNT(o) FROM OrdensDeServico o WHERE o.dataOs BETWEEN :dataI AND :dataF";
+            TypedQuery<Long> query = conexao.em.createQuery(jpql, Long.class);
+            query.setParameter("dataI", dataI);
+            query.setParameter("dataF", dataF);
 
-            if (rs.next() && rs.getInt("total") == 0) {
+            Long total = query.getSingleResult();
+
+            if (total == 0) {
                 JOptionPane.showMessageDialog(null,
                         "Nenhuma Ordem de Serviço encontrada no período selecionado.",
                         "Aviso",
@@ -44,6 +48,7 @@ public class GerarRelatorio {
                 conexao.FecharConexao();
                 return;
             }
+
             //procura o arquivo no projeto
             InputStream LocalArquivo = GerarRelatorio.class.getResourceAsStream(caminho);
 
