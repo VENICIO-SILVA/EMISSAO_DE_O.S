@@ -69,8 +69,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         BtpesqID = new javax.swing.JButton();
         LbId = new javax.swing.JLabel();
         CampoId = new javax.swing.JTextField();
-        LbStatus = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -201,16 +199,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE))
         );
 
-        LbStatus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        LbStatus.setText("STATUS:");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Concluido", "Orçamento aprovado", "Aguardando aprovação", "Aguardando peças", "Abandonado pelo cliente", "Na bancada", "Retornou"}));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("EQUIPAMENTO:");
 
@@ -288,10 +276,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(CampoValor))
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(LbStatus)
                                                                 .addGap(7, 7, 7)
-                                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(BtAddOs, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(BtPesquisa))))
@@ -309,9 +294,7 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
                                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(LbStatus)
-                                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(35, 35, 35)
+                                                .addGap(35, 35, 35))
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(jLabel4)
                                                         .addComponent(CampoNomeEquip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -340,15 +323,61 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtAddOsActionPerformed(ActionEvent evt) {
+        if (!RadioOrcamento.isSelected() && !RadioOrdenServico.isSelected()) {
+            JOptionPane.showMessageDialog(null, "Selecione o tipo: Orçamento ou Ordem de Serviço!");
+            return;
+        }
+
+        // Validação do cliente
+        if (CampoId.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Selecione um cliente na tabela antes de cadastrar a OS!");
+            return;
+        }
+
+        // Validação dos campos obrigatórios
+        if (CampoNomeEquip.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe o nome do equipamento!");
+            return;
+        }
+        if (CampoServico.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe qual tipo de serviço vai ser realizado");
+            return;
+        }
+        if (CampoDefeito.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Descreva o defeito informado pelo cliente!");
+            return;
+        }
+        if (CampoTec.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe o nome do técnico responsável!");
+            return;
+        }
+        if (CampoValor.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe o valor total do serviço!");
+            return;
+        }
+
+        // Validação do valor numérico
+        try {
+            Double.parseDouble(CampoValor.getText().replace(",", "."));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Valor inválido! Digite apenas números (ex: 150.00)");
+            return;
+        }
+
+        // Se passou por todas as validações, realiza o cadastro
         CadastrarOS cadastrar = new CadastrarOS();
-        OrdensDeServico ordens = cadastrar.cadastrarOS(RadioOrcamento, jComboBox1, CampoDataOs, CampoNomeEquip,
-                CampoServico, CampoDefeito, CampoTec, CampoValor, CampoId);
+        OrdensDeServico ordens = cadastrar.cadastrarOS(
+                RadioOrcamento, CampoDataOs, CampoNomeEquip,
+                CampoServico, CampoDefeito, CampoTec, CampoValor, CampoId
+        );
+
         if (ordens == null) {
-            JOptionPane.showMessageDialog(null, "Nao foi possivel cadastrar a Os");
+            JOptionPane.showMessageDialog(null, "Não foi possível cadastrar a OS. Verifique os dados e tente novamente.");
         } else {
             Date data = new Date();
-            SimpleDateFormat formato = new SimpleDateFormat("EEEE, dd 'de' MMMM \n'de' yyyy HH:mm:ss", new Locale("pt", "BR"));
+            SimpleDateFormat formato = new SimpleDateFormat("EEEE, dd 'de' MMMM 'de' yyyy HH:mm:ss", new Locale("pt", "BR"));
             CampoDataOs.setText(formato.format(data));
+            JOptionPane.showMessageDialog(null, "Ordem de Serviço cadastrada com sucesso!");
         }
     }
 
@@ -411,11 +440,9 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
     private javax.swing.JTextField CampoValor;
     private javax.swing.JLabel LbData;
     private javax.swing.JLabel LbId;
-    private javax.swing.JLabel LbStatus;
     private javax.swing.JRadioButton RadioOrcamento;
     private javax.swing.JRadioButton RadioOrdenServico;
     private javax.swing.JTable TabelaOs;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
