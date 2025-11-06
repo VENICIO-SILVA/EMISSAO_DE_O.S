@@ -5,11 +5,10 @@ import br.com.project.domain.Clientes;
 import br.com.project.domain.OrdensDeServico;
 
 import javax.swing.*;
-import java.awt.*;
 import java.sql.Timestamp;
 
 public class CadastrarOS {
-    public OrdensDeServico cadastrarOS(JRadioButton Orcamento, JComboBox<String> Status, JTextField DataOs, JTextField Equipamento, JTextField servico, JTextField defeito, JTextField tecnico, JTextField valor, JTextField ChaveEstrangeira) {
+    public OrdensDeServico cadastrarOS(JRadioButton Orcamento, JTextField DataOs, JTextField Equipamento, JTextField servico, JTextField defeito, JTextField tecnico, JTextField valor, JTextField ChaveEstrangeira) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
         OrdensDeServico InsertOs = new OrdensDeServico();
@@ -29,7 +28,7 @@ public class CadastrarOS {
 
             InsertOs.setTipo(Orcamento.getText());
 
-            InsertOs.setStatus(Status.getSelectedItem().toString());
+            InsertOs.setStatus("Emitida");
 
             int idCli = Integer.parseInt(ChaveEstrangeira.getText());
 
@@ -47,7 +46,6 @@ public class CadastrarOS {
         } finally {
             conexao.FecharConexao();
         }
-        JOptionPane.showMessageDialog(null, "Ordem de Serviço Emitida Com Sucesso!");
         return InsertOs;
     }
 }
