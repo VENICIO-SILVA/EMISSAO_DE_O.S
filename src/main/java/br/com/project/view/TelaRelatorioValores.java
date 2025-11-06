@@ -75,7 +75,7 @@ public class TelaRelatorioValores extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Relatorio de Valores");
+        setTitle("Relatorio Financeiro");
 
         LbInicioData.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         LbInicioData.setText("DE:");
@@ -130,10 +130,7 @@ public class TelaRelatorioValores extends javax.swing.JInternalFrame {
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-
                 jButton1ActionPerformed(evt);
-                //todo criar o jrxml de valores somar todo o lucro da empresa pesquisar no chat como ter o dados de valores baseado em serviços concluidos
-                GerarRelatorio.GerarRelatorio("/relatorios/Ordens.jrxml" , "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Serviços.pdf");
             }
         });
 
