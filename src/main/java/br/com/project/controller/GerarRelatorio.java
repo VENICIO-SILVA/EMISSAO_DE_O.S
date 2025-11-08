@@ -1,14 +1,11 @@
 package br.com.project.controller;
 
 import br.com.project.dao.Dao;
-import br.com.project.domain.OrdensDeServico;
 import jakarta.persistence.TypedQuery;
 import net.sf.jasperreports.engine.*;
 
 import javax.swing.*;
 import java.io.InputStream;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
