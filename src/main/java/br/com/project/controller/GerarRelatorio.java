@@ -30,10 +30,10 @@ public class GerarRelatorio {
             LocalDate dataF = LocalDate.parse(data2, formatador);
 
             //TODO CORRIGIR ERRO DE CONEXAO COM BANCO DE DADOS
-            String jpql = "SELECT COUNT(o) FROM OrdensDeServico o WHERE o.dataOs BETWEEN :dataI AND :dataF";
+            String jpql = "SELECT COUNT(o) FROM OrdensDeServico o WHERE o.data_os BETWEEN :dataI AND :dataF";
             TypedQuery<Long> query = conexao.em.createQuery(jpql, Long.class);
-            query.setParameter("dataI", dataI);
-            query.setParameter("dataF", dataF);
+            query.setParameter("dataI", java.sql.Timestamp.valueOf(dataI.atStartOfDay()));
+            query.setParameter("dataF", java.sql.Timestamp.valueOf(dataF.atStartOfDay()));
 
             Long total = query.getSingleResult();
 
