@@ -3,6 +3,7 @@ package br.com.project.controller;
 import br.com.project.dao.Dao;
 import jakarta.persistence.TypedQuery;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 import javax.swing.*;
 import java.io.InputStream;
@@ -13,64 +14,61 @@ import java.util.Map;
 
 public class GerarRelatorio {
 
-    //esse parametro vai servir para quando iniciar o relatorio enviar o caminho correto para gerar o relatorio correto
-    //pois existem 3 tipos. 1- clientes, 2-ordens, 3-valores
-
     public static void GerarRelatorio(String caminho, String Nome_De_Arquivo_Salvo, JTextField dataInicio, JTextField dataFim) {
-    Dao conexao = new Dao();
+        Dao conexao = new Dao();
         try {
             conexao.IniciarConexao();
-            String data1 = dataInicio.getText();
-            String data2=  dataFim.getText();
-            //como os campos vem da tela como "Jtextfield e necessario
-            //a conversao para DATA
-            //todo provavelmente  as VAR dataI e dataF nao estao recebendo as datas vindas dos parametros
-            DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate dataI = LocalDate.parse(data1, formatador);
-            LocalDate dataF = LocalDate.parse(data2, formatador);
 
-            //TODO CORRIGIR ERRO DE CONEXAO COM BANCO DE DADOS
+            // Converte datas
+            DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate dataI = LocalDate.parse(dataInicio.getText(), formatador);
+            LocalDate dataF = LocalDate.parse(dataFim.getText(), formatador);
+
+            // Verifica se existem registros no período
             String jpql = "SELECT COUNT(o) FROM OrdensDeServico o WHERE o.data_os BETWEEN :dataI AND :dataF";
             TypedQuery<Long> query = conexao.em.createQuery(jpql, Long.class);
             query.setParameter("dataI", java.sql.Timestamp.valueOf(dataI.atStartOfDay()));
             query.setParameter("dataF", java.sql.Timestamp.valueOf(dataF.atStartOfDay()));
 
             Long total = query.getSingleResult();
-
             if (total == 0) {
                 JOptionPane.showMessageDialog(null,
                         "Nenhuma Ordem de Serviço encontrada no período selecionado.",
                         "Aviso",
                         JOptionPane.INFORMATION_MESSAGE);
-                conexao.FecharConexao();
                 return;
             }
 
-            //procura o arquivo no projeto
+            // Carrega o arquivo do relatório
             InputStream LocalArquivo = GerarRelatorio.class.getResourceAsStream(caminho);
-
-            //verifica se o arquivo existe
             if (LocalArquivo == null) {
-                System.out.println("⚠️ Arquivo .jrxml não encontrado!");
-                return;
+                throw new RuntimeException("⚠️ Arquivo de relatório não encontrado: " + caminho);
             }
-            //faz a conversao do arquivo encontrado para objeto java para que o Jasper Entenda o arquivo
-            JasperReport report = JasperCompileManager.compileReport(LocalArquivo);
 
-            //todo no momento nao tem uso, mas irei utulizar para inserir dados complementares no PDF
+            JasperReport report;
+            if (caminho.endsWith(".jrxml")) {
+                report = JasperCompileManager.compileReport(LocalArquivo);
+            } else if (caminho.endsWith(".jasper")) {
+                report = (JasperReport) JRLoader.loadObject(LocalArquivo);
+            } else {
+                throw new RuntimeException("Extensão inválida para relatório: " + caminho);
+            }
+
+            // Parâmetros (confirme os nomes no seu .jrxml)
             Map<String, Object> parametros = new HashMap<>();
             parametros.put("dataInicio", java.sql.Date.valueOf(dataI));
             parametros.put("dataFim", java.sql.Date.valueOf(dataF));
 
-
+            // Gera o relatório
             JasperPrint print = JasperFillManager.fillReport(report, parametros, conexao.getConnection());
-
             JasperExportManager.exportReportToPdfFile(print, Nome_De_Arquivo_Salvo);
+
             System.out.println("✅ Relatório gerado com sucesso!");
 
         } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null,"Erro de conexão com banco de dados" + e.getMessage());
+            e.printStackTrace(); // Mostra o erro completo
+        } finally {
+            conexao.FecharConexao(); // Fecha conexões sempre
         }
     }
 }
