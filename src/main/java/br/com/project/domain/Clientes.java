@@ -2,6 +2,8 @@ package br.com.project.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class Clientes {
 
@@ -23,8 +25,19 @@ public class Clientes {
     private String perfil;
     private String senha;
 
+    @Column
+    private Date data_cadastro;
+
     public Clientes() {
 
+    }
+
+    public Date getData_cadastro() {
+        return data_cadastro;
+    }
+
+    public void setData_cadastro(Date data_cadastro) {
+        this.data_cadastro = data_cadastro;
     }
 
     public Clientes(String nome, String Endereco, String telefone, String gmail) {
