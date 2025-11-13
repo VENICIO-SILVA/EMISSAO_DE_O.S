@@ -133,7 +133,7 @@ public class TelaRelatorioOrdens extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
 
                 //todo verificar se realmente os campos estao recebendo as datas
-                GerarRelatorio.GerarRelatorio("/relatorios/Ordens.jrxml" , "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Serviços.pdf", CampoInicioData1, CampoFinalData);
+                GerarRelatorio.GerarRelatorio("Ordens","/relatorios/Ordens.jrxml", "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Serviços.pdf", CampoInicioData1, CampoFinalData);
             }
 
         });

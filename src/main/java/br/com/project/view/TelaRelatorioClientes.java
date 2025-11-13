@@ -131,7 +131,7 @@ public class TelaRelatorioClientes extends javax.swing.JInternalFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-                GerarRelatorio.GerarRelatorio("/relatorios/clientes.jrxml" , "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Clientes.pdf", CampoInicioData1, CampoFinalData);
+                GerarRelatorio.GerarRelatorio("Clientes","/relatorios/clientes.jrxml" , "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_de_Clientes.pdf", CampoInicioData1, CampoFinalData);
             }
         });
 
