@@ -1,95 +1,124 @@
-<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
-<jasperReport name="Blank_A4_Landscape" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="194d9964-9067-4cd1-be13-e702bdfca22b">
-	<property name="com.jaspersoft.studio.data.sql.tables" value="cHJvamV0b29zLmNsaWVudGVzICwxNSwxNSxlYTI4ZjNmMy00M2JiLTQwYzktOTIwYS1lMDAzMTc3&#xa;OTUzN2Y7"/>
+<!-- Corrigido para JasperReports 7.0.3 -->
+<jasperReport name="RelatorioClientes" language="java"
+	pageWidth="842" pageHeight="595" orientation="Landscape"
+	columnWidth="802" leftMargin="20" rightMargin="20"
+	topMargin="20" bottomMargin="20">
+
+	<property name="com.jaspersoft.studio.data.sql.tables"
+		value="cHJvamV0b29zLmNsaWVudGVzICwxNSwxNSxlYTI4ZjNmMy00M2JiLTQwYzktOTIwYS1lMDAzMTc3OTUzN2Y7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="projetoos"/>
-	<query language="SQL"><![CDATA[SELECT *
-FROM projetoos.clientes]]></query>
-	<field name="idCli" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="idCli"/>
-		<property name="com.jaspersoft.studio.field.label" value="idCli"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
-	</field>
-	<field name="nome" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nome"/>
-		<property name="com.jaspersoft.studio.field.label" value="nome"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
-	</field>
-	<field name="Endereco" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="Endereco"/>
-		<property name="com.jaspersoft.studio.field.label" value="Endereco"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
-	</field>
-	<field name="telefone" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="telefone"/>
-		<property name="com.jaspersoft.studio.field.label" value="telefone"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
-	</field>
-	<field name="gmail" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="gmail"/>
-		<property name="com.jaspersoft.studio.field.label" value="gmail"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
-	</field>
-	<field name="perfil" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="perfil"/>
-		<property name="com.jaspersoft.studio.field.label" value="perfil"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
-	</field>
-	<field name="senha" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="senha"/>
-		<property name="com.jaspersoft.studio.field.label" value="senha"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
-	</field>
-	<background splitType="Stretch"/>
-	<title height="79" splitType="Stretch">
-		<element kind="staticText" uuid="c84d7c75-3a24-4d37-b853-e5322e0f2043" x="140" y="-10" width="600" height="79" fontName="Arial" fontSize="40.0" italic="false" bold="true">
-			<text><![CDATA[RELATORIO DE CLIENTES]]></text>
-		</element>
+
+	<parameter name="dataInicio" class="java.sql.Date"/>
+	<parameter name="dataFim" class="java.sql.Date"/>
+
+	<queryString>
+		<![CDATA[
+		SELECT * FROM clientes
+		WHERE data_cadastro BETWEEN $P{dataInicio} AND $P{dataFim}
+		]]>
+	</queryString>
+
+	<field name="idCli" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="Endereco" class="java.lang.String"/>
+	<field name="telefone" class="java.lang.String"/>
+	<field name="gmail" class="java.lang.String"/>
+	<field name="perfil" class="java.lang.String"/>
+	<field name="senha" class="java.lang.String"/>
+
+	<background/>
+
+	<!-- TÍTULO -->
+	<title>
+		<band height="79">
+			<staticText>
+				<reportElement x="140" y="-10" width="600" height="79"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="40" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE CLIENTES]]></text>
+			</staticText>
+		</band>
 	</title>
-	<pageHeader height="59" splitType="Stretch">
-		<element kind="rectangle" uuid="d5889853-dbe2-4d34-86a2-7dd88fd943a5" mode="Opaque" x="-10" y="9" width="810" height="31" forecolor="#030303" backcolor="#030303"/>
-		<element kind="staticText" uuid="279977ff-09ae-4b7e-a82d-426f7b2fab72" x="0" y="24" width="20" height="16" forecolor="#FFFFFF">
-			<text><![CDATA[ID]]></text>
-		</element>
-		<element kind="staticText" uuid="66d46722-9244-4194-9684-2064f510574f" x="50" y="24" width="40" height="16" forecolor="#FFFFFF">
-			<text><![CDATA[NOME]]></text>
-		</element>
-		<element kind="staticText" uuid="37511028-4eeb-4fc2-b516-bf731bad593c" x="210" y="21" width="60" height="16" forecolor="#FFFFFF">
-			<text><![CDATA[ENDEREÇO]]></text>
-		</element>
-		<element kind="staticText" uuid="63979657-4c6a-48dc-887e-c508e57e9da5" x="390" y="21" width="60" height="16" forecolor="#FFFFFF">
-			<text><![CDATA[TELEFONE]]></text>
-		</element>
-		<element kind="staticText" uuid="afe686df-ac91-4920-9d19-8aa145448ca2" x="530" y="21" width="60" height="16" forecolor="#FFFFFF">
-			<text><![CDATA[GMAIL]]></text>
-		</element>
+
+	<!-- CABEÇALHO -->
+	<pageHeader>
+		<band height="59">
+			<rectangle>
+				<reportElement x="-10" y="9" width="810" height="31" mode="Opaque" backcolor="#030303"/>
+			</rectangle>
+
+			<staticText>
+				<reportElement x="0" y="24" width="20" height="16" forecolor="#FFFFFF"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+
+			<staticText>
+				<reportElement x="50" y="24" width="120" height="16" forecolor="#FFFFFF"/>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+
+			<staticText>
+				<reportElement x="210" y="24" width="120" height="16" forecolor="#FFFFFF"/>
+				<text><![CDATA[ENDEREÇO]]></text>
+			</staticText>
+
+			<staticText>
+				<reportElement x="390" y="24" width="120" height="16" forecolor="#FFFFFF"/>
+				<text><![CDATA[TELEFONE]]></text>
+			</staticText>
+
+			<staticText>
+				<reportElement x="530" y="24" width="160" height="16" forecolor="#FFFFFF"/>
+				<text><![CDATA[GMAIL]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
+
+	<!-- DETALHES -->
 	<detail>
-		<band height="43" splitType="Stretch">
-			<element kind="textField" uuid="f0fd3997-3f0c-43a9-8830-6c97acfc8998" x="0" y="0" width="50" height="30">
-				<expression><![CDATA[$F{idCli}]]></expression>
-			</element>
-			<element kind="textField" uuid="583c0593-79ca-4029-80e8-6d087f07a294" x="50" y="0" width="160" height="30">
-				<expression><![CDATA[$F{nome}]]></expression>
-			</element>
-			<element kind="textField" uuid="863a77a3-4c70-4776-9813-c5bd2bd01a46" x="210" y="0" width="180" height="30">
-				<expression><![CDATA[$F{Endereco}]]></expression>
-			</element>
-			<element kind="textField" uuid="1651ba59-1f95-4218-9a70-973e2136626b" x="390" y="0" width="140" height="30">
-				<expression><![CDATA[$F{telefone}]]></expression>
-			</element>
-			<element kind="textField" uuid="661a1ffb-bf81-4eb2-8523-3164ee0c9f2e" x="530" y="0" width="270" height="30">
-				<expression><![CDATA[$F{gmail}]]></expression>
-			</element>
+		<band height="43">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="30"/>
+				<textFieldExpression><![CDATA[$F{idCli}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="50" y="0" width="160" height="30"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="210" y="0" width="180" height="30"/>
+				<textFieldExpression><![CDATA[$F{Endereco}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="390" y="0" width="140" height="30"/>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="530" y="0" width="270" height="30"/>
+				<textFieldExpression><![CDATA[$F{gmail}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
-	<columnFooter height="45" splitType="Stretch"/>
-	<pageFooter height="54" splitType="Stretch"/>
-	<summary height="50" splitType="Stretch">
-		<element kind="textField" uuid="e53776ad-dbec-41c7-b337-524ffd585d34" x="700" y="10" width="100" height="30" hTextAlign="Right">
-			<expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
-		</element>
-		<element kind="textField" uuid="b54999a7-6b08-4454-93a7-b464d574aec6" x="0" y="10" width="100" height="30" pattern="MMMMM dd, yyyy">
-			<expression><![CDATA[new java.util.Date()]]></expression>
-		</element>
+
+	<!-- RODAPÉ -->
+	<summary>
+		<band height="50">
+			<textField pattern="MMMM dd, yyyy">
+				<reportElement x="0" y="10" width="150" height="30"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="700" y="10" width="100" height="30"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
+
 </jasperReport>
