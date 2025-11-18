@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport name="RelatorioFinanceiroOS"
+    language="java" pageWidth="842" pageHeight="595" orientation="Landscape"
+    columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <!-- PARÂMETROS -->
+    <parameter name="dataInicio" class="java.sql.Date"/>
+    <parameter name="dataFim" class="java.sql.Date"/>
+
+    <!-- QUERY -->
+    <queryString>
+        <![CDATA[
+        SELECT
+            COUNT(os.os) AS total_os,
+            SUM(os.preco_servico) AS total_valor
+        FROM projetoos.os
+        WHERE os.status = 'concluido'
+        AND os.data_os BETWEEN $P{dataInicio} AND $P{dataFim}
+        ]]>
+    </queryString>
+
+    <!-- CAMPOS RETORNADOS -->
+    <field name="total_os" class="java.lang.Long"/>
+    <field name="total_valor" class="java.lang.Double"/>
+
+    <!-- TÍTULO -->
+    <title>
+        <band height="60">
+            <staticText>
+                <reportElement x="100" y="5" width="600" height="40"/>
+                <textElement textAlignment="Center">
+                    <font size="28" isBold="true"/>
+                </textElement>
+                <text><![CDATA[RELATÓRIO FINANCEIRO - RESUMO]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- CORPO (APENAS RESUMO) -->
+    <summary>
+        <band height="200">
+
+            <!-- Quantidade -->
+            <staticText>
+                <reportElement x="100" y="40" width="300" height="30"/>
+                <textElement><font size="18" isBold="true"/></textElement>
+                <text><![CDATA[Total de OS Finalizadas:]]></text>
+            </staticText>
+
+            <textField>
+                <reportElement x="420" y="40" width="200" height="30"/>
+                <textElement><font size="18" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$F{total_os}]]></textFieldExpression>
+            </textField>
+
+            <!-- Valor total -->
+            <staticText>
+                <reportElement x="100" y="100" width="300" height="30"/>
+                <textElement><font size="18" isBold="true"/></textElement>
+                <text><![CDATA[Faturamento Total:]]></text>
+            </staticText>
+
+            <textField pattern="R$ #,##0.00">
+                <reportElement x="420" y="100" width="200" height="30"/>
+                <textElement><font size="18" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$F{total_valor}]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </summary>
+
+</jasperReport>

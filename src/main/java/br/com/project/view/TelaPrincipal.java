@@ -169,6 +169,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarRelatorio.add(MenuRClientes);
 
         MenuRValores.setText("3- Valores");
+        MenuRValores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuRValoresActionPerformed(evt);
+            }
+        });
         BarRelatorio.add(MenuRValores);
 
         jMenuBar1.add(BarRelatorio);
@@ -320,6 +325,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         iniciar.setVisible(true);
         Desktop.add(iniciar);
     }//GEN-LAST:event_MenuRClientesActionPerformed
+
+    private void MenuRValoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRValoresActionPerformed
+        TelaRelatorioValores iniciar = new TelaRelatorioValores();
+        iniciar.setVisible(true);
+        Desktop.add(iniciar);
+    }//GEN-LAST:event_MenuRValoresActionPerformed
 
     /**
      * @param args the command line arguments

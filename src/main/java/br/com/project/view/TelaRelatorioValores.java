@@ -13,7 +13,6 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Venicio
  */
-//todo colocar os dados da data na impressao do documento em pdf
 public class TelaRelatorioValores extends javax.swing.JInternalFrame {
 
     /**
@@ -131,6 +130,7 @@ public class TelaRelatorioValores extends javax.swing.JInternalFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+                GerarRelatorio.GerarRelatorio("Valores","/relatorios/valores.jrxml" , "C:\\Users\\Venicio\\Desktop\\RELATORIOos\\Relatorio_financeiro.pdf", CampoInicioData1, CampoFinalData);
             }
         });
 

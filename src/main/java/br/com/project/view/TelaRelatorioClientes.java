@@ -13,7 +13,6 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Venicio
  */
-//todo colocar os dados da data na impressao do documento em pdf
 public class TelaRelatorioClientes extends javax.swing.JInternalFrame {
 
     /**

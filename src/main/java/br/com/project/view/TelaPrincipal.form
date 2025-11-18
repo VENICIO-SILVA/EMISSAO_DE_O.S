@@ -83,6 +83,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="3- Valores"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuRValoresActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
