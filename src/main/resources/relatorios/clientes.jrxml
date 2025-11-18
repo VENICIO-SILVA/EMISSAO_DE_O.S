@@ -1,4 +1,4 @@
-<!-- Corrigido para JasperReports 7.0.3 -->
+
 <jasperReport name="RelatorioClientes" language="java"
 	pageWidth="842" pageHeight="595" orientation="Landscape"
 	columnWidth="802" leftMargin="20" rightMargin="20"
