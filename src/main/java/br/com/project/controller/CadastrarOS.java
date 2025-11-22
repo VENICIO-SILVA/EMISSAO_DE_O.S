@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.sql.Timestamp;
 
 public class CadastrarOS {
-    public OrdensDeServico cadastrarOS(JRadioButton Orcamento, JTextField DataOs, JTextField Equipamento, JTextField servico, JTextField defeito, JTextField tecnico, JTextField valor, JTextField ChaveEstrangeira) {
+    public OrdensDeServico cadastrarOS(JRadioButton Orcamento_Orden, JTextField DataOs, JTextField Equipamento, JTextField servico, JTextField defeito, JTextField tecnico, JTextField valor, JTextField ChaveEstrangeira) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
         OrdensDeServico InsertOs = new OrdensDeServico();
@@ -26,7 +26,7 @@ public class CadastrarOS {
 
             InsertOs.setValor(Double.parseDouble(valor.getText()));
 
-            InsertOs.setTipo(Orcamento.getText());
+            InsertOs.setTipo(Orcamento_Orden.getText());
 
             InsertOs.setStatus("Emitida");
 
