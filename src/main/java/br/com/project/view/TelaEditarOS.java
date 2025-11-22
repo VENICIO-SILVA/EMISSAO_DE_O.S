@@ -22,8 +22,14 @@ public class TelaEditarOS extends javax.swing.JFrame {
     /**
      * Método para preencher o campo de número da OS.
      */
-    public void DadosOS(String NOS) {
+    public void DadosOS(String NOS, String Data, String Equipamento, String defeito, String servico, String tecnico, String valor, String status) {
         CampoNOS.setText(NOS);
+        Campodata.setText(Data);
+        CampoEquip.setText(Equipamento);
+        CampoDefeito.setText(defeito);
+        CampoTec.setText(tecnico);
+        CampoValor.setText(valor);
+        CampoStatus.setText(status);
     }
 
     /**
