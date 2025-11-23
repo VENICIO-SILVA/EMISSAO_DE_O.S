@@ -274,7 +274,6 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
     }//GEN-LAST:event_BtExcluirOS1ActionPerformed
 
 
-    //todo corrigir a setagem de dados para editar os
     private void TabelaPesquisarOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaPesquisarOSMouseClicked
         int linha = TabelaPesquisarOS.getSelectedRow();
 

@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.sql.Timestamp;
 
 public class EditarOS {
-    public OrdensDeServico Editar(JTextField NOS, JTextField data, JTextField equipamento, JTextField servico, JTextField defeito, JTextField tec, JTextField Tipo,  JComboBox<String> Status, JTextField valor) {
+    public OrdensDeServico Editar(JTextField NOS, JTextField data, JTextField equipamento, JTextField servico, JTextField defeito, JTextField tec, JTextField Tipo, JComboBox<String> Status, JTextField valor) {
         Dao conexao = new Dao();
         conexao.IniciarConexao();
         OrdensDeServico Update = new OrdensDeServico();
