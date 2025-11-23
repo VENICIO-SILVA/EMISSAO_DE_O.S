@@ -141,6 +141,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         CadastrarOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         CadastrarOs.setText("3- Cadastrar O.S");
+        CadastrarOs.setEnabled(false);
         CadastrarOs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadastrarOsActionPerformed(evt);
