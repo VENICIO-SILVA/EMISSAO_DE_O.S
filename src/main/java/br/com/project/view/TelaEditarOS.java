@@ -22,15 +22,23 @@ public class TelaEditarOS extends javax.swing.JFrame {
     /**
      * Método para preencher o campo de número da OS.
      */
-    public void DadosOS(String NOS, String Data, String Equipamento, String defeito, String servico, String tecnico, String valor, String status) {
+    public void DadosOS(String NOS, String Data, String Equipamento, String defeito, String servico, String tecnico, String cliente, String valor, String status) {
         CampoNOS.setText(NOS);
         Campodata.setText(Data);
         CampoEquip.setText(Equipamento);
         CampoDefeito.setText(defeito);
+        CampoServico.setText(servico);
+        CampoCliente.setText(cliente);
         CampoTec.setText(tecnico);
+        CampoStatus.setText(status);
         CampoValor.setText(valor);
         CampoStatus.setText(status);
     }
+
+    private void BtSalvarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
+        EditarOS editar = new EditarOS();
+        editar.Editar(CampoNOS, Campodata, CampoEquip, CampoDefeito, CampoServico, CampoCliente, CampoTec, ComboBoxTipo, CampoValor);
+    }//GEN-LAST:event_BtCadastrarActionPerformed
 
     /**
      * Inicialização automática dos componentes gráficos (gerado pelo NetBeans).
@@ -61,6 +69,12 @@ public class TelaEditarOS extends javax.swing.JFrame {
         Campodata = new javax.swing.JTextField();
         CampoNOS = new javax.swing.JTextField();
         BtSalvarEdicao = new javax.swing.JButton();
+        BtSalvarEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSalvarEdicaoActionPerformed(evt);
+            }
+        });
+
         BtVoltar = new javax.swing.JButton();
         BtCancelar = new javax.swing.JButton();
 
