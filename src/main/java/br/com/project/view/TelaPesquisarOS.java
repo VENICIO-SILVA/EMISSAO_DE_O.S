@@ -265,7 +265,7 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
 
     private void BtEditarOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEditarOS1ActionPerformed
         iniciar.setVisible(true);
-        iniciar.DadosOS(this.IdOs, this.data, this.equip, this.defeito, this.servico, this.tec, this.valor, this.status);
+        iniciar.DadosOS(this.IdOs, this.data, this.equip, this.defeito, this.servico, this.tec,this.cliente, this.valor, this.status);
     }//GEN-LAST:event_BtEditarOS1ActionPerformed
 
     private void BtExcluirOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtExcluirOS1ActionPerformed
@@ -283,23 +283,19 @@ public class TelaPesquisarOS extends javax.swing.JFrame {
 
         this.data = TabelaPesquisarOS.getValueAt(linha, 1).toString();
 
-
         this.equip = TabelaPesquisarOS.getValueAt(linha, 2).toString();
 
         this.defeito = TabelaPesquisarOS.getValueAt(linha, 3).toString();
 
         this.servico = TabelaPesquisarOS.getValueAt(linha, 4).toString();
 
-        this.cliente = TabelaPesquisarOS.getValueAt(linha, 5).toString();
+        this.cliente = TabelaPesquisarOS.getValueAt(linha,5).toString();
 
-
-        this.tec = TabelaPesquisarOS.getValueAt(linha, 0).toString();
-
-
-        this.valor = TabelaPesquisarOS.getValueAt(linha, 6).toString();
-
+        this.tec = TabelaPesquisarOS.getValueAt(linha, 6).toString();
 
         this.status = TabelaPesquisarOS.getValueAt(linha, 7).toString();
+
+        this.valor = TabelaPesquisarOS.getValueAt(linha, 9).toString();
 
 
     }//GEN-LAST:event_TabelaPesquisarOSMouseClicked

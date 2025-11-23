@@ -1,5 +1,6 @@
 package br.com.project.view;
 
+import br.com.project.controller.EditarOS;
 import javax.swing.*;
 import java.sql.Timestamp;
 
@@ -32,7 +33,6 @@ public class TelaEditarOS extends javax.swing.JFrame {
         CampoTec.setText(tecnico);
         CampoStatus.setText(status);
         CampoValor.setText(valor);
-        CampoStatus.setText(status);
     }
 
     private void BtSalvarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
@@ -109,15 +109,15 @@ public class TelaEditarOS extends javax.swing.JFrame {
         jLabel8.setText("Técnico Resp.:");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12));
-        jLabel9.setText("Tipo:");
+        jLabel9.setText("Status");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12));
-        jLabel10.setText("Status:");
+        jLabel10.setText("Tipo:");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12));
         jLabel11.setText("Valor:");
 
-        ComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {
+        ComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{
                 "Concluido", "Orçamento aprovado", "Aguardando aprovação",
                 "Aguardando peças", "Abandonado pelo cliente", "Na bancada", "Retornou"
         }));
