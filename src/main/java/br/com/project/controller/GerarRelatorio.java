@@ -124,7 +124,7 @@ public class GerarRelatorio {
 
 
                     // Confere se há valores no período
-                    String jpql3 =  "SELECT COUNT(o) FROM OrdensDeServico o " +
+                    String jpql3 = "SELECT COUNT(o) FROM OrdensDeServico o " +
                             "WHERE o.status = :status " +
                             "AND o.data_os BETWEEN :dataI AND :dataF";
                     TypedQuery<Long> query3 = conexao.em.createQuery(jpql3, Long.class);
