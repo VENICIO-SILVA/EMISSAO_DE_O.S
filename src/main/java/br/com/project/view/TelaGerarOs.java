@@ -26,6 +26,9 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
 
     public TelaGerarOs() {
         initComponents();
+        Date data = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("EEEE, dd 'de' MMMM 'de' yyyy HH:mm:ss", new Locale("pt", "BR"));
+        CampoDataOs.setText(formato.format(data));
 
 
         //Para a pesquisa sempre Mostrar a consulta sem precisar apertar qualquer botao
@@ -374,9 +377,6 @@ public class TelaGerarOs extends javax.swing.JInternalFrame {
         if (ordens == null) {
             JOptionPane.showMessageDialog(null, "Não foi possível cadastrar a OS. Verifique os dados e tente novamente.");
         } else {
-            Date data = new Date();
-            SimpleDateFormat formato = new SimpleDateFormat("EEEE, dd 'de' MMMM 'de' yyyy HH:mm:ss", new Locale("pt", "BR"));
-            CampoDataOs.setText(formato.format(data));
             JOptionPane.showMessageDialog(null, "Ordem de Serviço cadastrada com sucesso!");
         }
     }
