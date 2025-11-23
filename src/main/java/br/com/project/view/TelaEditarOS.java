@@ -12,17 +12,10 @@ public class TelaEditarOS extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaEditarOS.class.getName());
 
-    /**
-     * Construtor: inicializa os componentes e centraliza a janela.
-     */
     public TelaEditarOS() {
         initComponents();
-        setLocationRelativeTo(null); // Centraliza a janela na tela
+        setLocationRelativeTo(null);
     }
-
-    /**
-     * Método para preencher o campo de número da OS.
-     */
     public void DadosOS(String NOS, String Data, String Equipamento, String defeito, String servico, String tecnico, String cliente, String valor, String status) {
         CampoNOS.setText(NOS);
         Campodata.setText(Data);

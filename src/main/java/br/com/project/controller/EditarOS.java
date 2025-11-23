@@ -14,7 +14,6 @@ public class EditarOS {
         try {
             //1 captura o numero da ordem de serviço
             int os = Integer.parseInt(NOS.getText());
-
             //2 consulta no banco de dados a ordem
             Update = conexao.em.find(OrdensDeServico.class, os);
 
@@ -23,7 +22,6 @@ public class EditarOS {
                 System.out.println("Nenhum ordem de serviço encontrada");
                 return null;
             } else {
-
                 // 4 muda os dados
                 Update.setData_os(new Timestamp(System.currentTimeMillis()));
                 Update.setEquipamento(equipamento.getText());
@@ -41,7 +39,6 @@ public class EditarOS {
                 conexao.em.merge(Update);
                 conexao.em.getTransaction().commit();
                 System.out.println("Ordem atualizada com sucesso");
-
             }
         } catch (Exception e) {
             System.out.println(e.getCause());

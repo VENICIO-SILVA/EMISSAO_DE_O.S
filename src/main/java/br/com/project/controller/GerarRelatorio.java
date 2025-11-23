@@ -25,8 +25,6 @@ public class GerarRelatorio {
 
             switch (Tipo_Relatorio) {
                 case "Ordens":
-                    //todo colocar no relatorio o tipo de ordem se é orçamento ou orden
-                    // Converte as datas do JTextField
                     DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     LocalDate dataI = LocalDate.parse(dataInicio.getText(), formatador);
                     LocalDate dataF = LocalDate.parse(dataFim.getText(), formatador);
