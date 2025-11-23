@@ -31,7 +31,8 @@ public class EditarOS {
                 Update.setServico(servico.getText());
                 Update.setTecnico(tec.getText());
                 Update.setTipo(Tipo.getText());
-                Update.setStatus(String.valueOf(Status));
+                Update.setStatus(Status.getSelectedItem().toString());
+
                 Update.setValor(Double.parseDouble(valor.getText()));
 
                 //todo corrigir o radiobutton status
@@ -42,9 +43,9 @@ public class EditarOS {
                 System.out.println("Ordem atualizada com sucesso");
 
             }
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        } finally{
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+        } finally {
             conexao.FecharConexao();
         }
         return Update;
