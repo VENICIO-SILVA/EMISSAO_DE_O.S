@@ -12,17 +12,17 @@ public class EditarOS {
         conexao.IniciarConexao();
         OrdensDeServico Update = new OrdensDeServico();
         try {
-        //1 captura o numero da ordem de serviço
-        int os = Integer.parseInt(NOS.getText());
+            //1 captura o numero da ordem de serviço
+            int os = Integer.parseInt(NOS.getText());
 
-        //2 consulta no banco de dados a ordem
-        Update = conexao.em.find(OrdensDeServico.class, os);
+            //2 consulta no banco de dados a ordem
+            Update = conexao.em.find(OrdensDeServico.class, os);
 
-        //3 verifica se a ordem existe no banco de dados
-        if (Update == null) {
-            System.out.println("Nenhum ordem de serviço encontrada");
-            return null;
-        } else {
+            //3 verifica se a ordem existe no banco de dados
+            if (Update == null) {
+                System.out.println("Nenhum ordem de serviço encontrada");
+                return null;
+            } else {
 
                 // 4 muda os dados
                 Update.setData_os(new Timestamp(System.currentTimeMillis()));
