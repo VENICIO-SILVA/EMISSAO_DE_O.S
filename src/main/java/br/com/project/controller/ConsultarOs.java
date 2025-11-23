@@ -26,13 +26,16 @@ public class ConsultarOs {
             if (texto.matches("[a-zA-Z]+")) {
                 return resultados;
             }
-            String jpql = "SELECT c FROM OrdensDeServico c WHERE c.cliente.id = :idcli";
+            String jpql =
+                    "SELECT o FROM OrdensDeServico o " +
+                            "WHERE CAST(o.os AS string) LIKE :pesquisa " +                 // pesquisar por número da OS
+                            "OR CAST(o.cliente.id AS string) LIKE :pesquisa " +           // pesquisar por ID do cliente
+                            "OR LOWER(o.cliente.nome) LIKE :pesquisa";
+
             TypedQuery<OrdensDeServico> query = conexao.em.createQuery(jpql, OrdensDeServico.class);
-            query.setParameter("idcli", Integer.parseInt(idcli.getText()));
+            query.setParameter("pesquisa", texto.toLowerCase() + "%");
+
             resultados.addAll(query.getResultList());
-            if (resultados.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Este Cliente nao possui OS em aberto");
-            }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro de conexão com banco de dados: " + e.getMessage());
