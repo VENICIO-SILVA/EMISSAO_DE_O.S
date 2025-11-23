@@ -15,7 +15,6 @@ public class Login {
         Usuarios user = new Usuarios();
         Clientes clientes = new Clientes();
 
-        //todo  1 coisa  fazer revisar e entender melhore  aprender
         try {
             //os primeiros if verificam os campos
             if (login.getText().isEmpty() && senha.getText().isEmpty()) {
@@ -79,7 +78,7 @@ public class Login {
                 return null;
             }
         } catch (Exception e) {
-
+            JOptionPane.showMessageDialog(null,e.getMessage());
         } finally {
             conexao.FecharConexao();
         }
