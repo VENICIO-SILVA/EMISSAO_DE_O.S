@@ -35,7 +35,6 @@ public class EditarOS {
                 Update.setValor(Double.parseDouble(valor.getText()));
 
                 //todo corrigir o radiobutton status
-
                 //5- att no banco
                 conexao.em.getTransaction().begin();
                 conexao.em.merge(Update);
