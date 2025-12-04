@@ -1,7 +1,7 @@
 
 package br.com.project.view;
 
-import br.com.project.controller.GerarRelatorio;
+import br.com.project.service.GerarRelatorio;
 import com.github.lgooddatepicker.optionalusertools.CalendarListener;
 import com.github.lgooddatepicker.zinternaltools.CalendarSelectionEvent;
 import com.github.lgooddatepicker.zinternaltools.YearMonthChangeEvent;

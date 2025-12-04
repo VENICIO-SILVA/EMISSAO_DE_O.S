@@ -1,6 +1,6 @@
 package br.com.project.view;
 
-import br.com.project.controller.EditarOS;
+import br.com.project.service.EditarOS;
 import javax.swing.*;
 import java.sql.Timestamp;
 

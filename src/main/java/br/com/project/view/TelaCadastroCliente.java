@@ -4,7 +4,7 @@
  */
 package br.com.project.view;
 
-import br.com.project.controller.CadastrarCliente;
+import br.com.project.service.CadastrarCliente;
 import br.com.project.domain.Clientes;
 
 import javax.swing.*;

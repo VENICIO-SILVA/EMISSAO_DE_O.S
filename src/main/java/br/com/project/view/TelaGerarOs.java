@@ -4,8 +4,8 @@
  */
 package br.com.project.view;
 
-import br.com.project.controller.CadastrarOS;
-import br.com.project.controller.ConsultarUsuario;
+import br.com.project.service.CadastrarOS;
+import br.com.project.service.ConsultarUsuario;
 import br.com.project.domain.Clientes;
 import br.com.project.domain.OrdensDeServico;
 

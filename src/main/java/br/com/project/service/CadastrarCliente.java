@@ -1,4 +1,4 @@
-package br.com.project.controller;
+package br.com.project.service;
 
 import br.com.project.dao.Dao;
 import br.com.project.domain.Clientes;

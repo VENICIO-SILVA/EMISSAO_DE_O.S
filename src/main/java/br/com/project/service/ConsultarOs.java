@@ -1,4 +1,4 @@
-package br.com.project.controller;
+package br.com.project.service;
 
 import br.com.project.dao.Dao;
 import br.com.project.domain.OrdensDeServico;
@@ -7,7 +7,6 @@ import jakarta.persistence.TypedQuery;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.*;
 
 public class ConsultarOs {
 

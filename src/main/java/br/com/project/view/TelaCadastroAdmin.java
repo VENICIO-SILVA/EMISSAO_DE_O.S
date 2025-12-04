@@ -5,7 +5,7 @@
 package br.com.project.view;
 
 import br.com.project.domain.Usuarios;
-import br.com.project.controller.CadastrarAdmin;
+import br.com.project.service.CadastrarAdmin;
 
 import javax.swing.*;
 

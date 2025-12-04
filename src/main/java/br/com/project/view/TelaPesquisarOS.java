@@ -4,13 +4,12 @@
  */
 package br.com.project.view;
 
-import br.com.project.controller.ConsultarOs;
-import br.com.project.controller.ExcluirOs;
+import br.com.project.service.ConsultarOs;
+import br.com.project.service.ExcluirOs;
 import br.com.project.domain.OrdensDeServico;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import java.util.List;
 
 /**
